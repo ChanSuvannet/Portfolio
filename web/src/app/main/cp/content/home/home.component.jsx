@@ -1,4 +1,5 @@
 import { BackgroundLines } from "../../../../../components/background-lines";
+import { Cover } from "../../../../../components/cover";
 import "./home.component.css";
 import Profile from "/src/assets/image/pic.jpg";
 import Discord from "/src/assets/svg/discord.svg";
@@ -74,9 +75,11 @@ const HomeComponent = () => {
                   </div>
                 </div>
                 <div className="flex justify-center items-center pt-5">
-                  <button className="bg-red-300 hover:bg-red-200 max-600:w-[145px] max-600:h-[44px] ">
-                    Hire Me
-                  </button>
+                  <Cover className="rounded-xl">
+                    <button className="text-lg font-bold w-[145px] h-[44px] text-red-300 hover:text-white">
+                      Hire Me
+                    </button>
+                  </Cover>
                 </div>
               </div>
             </div>
