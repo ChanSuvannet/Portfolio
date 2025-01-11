@@ -35,7 +35,7 @@ const DesktopComponent = () => {
   };
 
   return (
-    <header className="flex justify-between px-9 items-center large-screen-header my-bg1">
+    <header className="flex justify-between px-9 items-center large-screen-header my-bg1 relative z-20">
       <nav className="header-nav text-gray-800">
         <ul className="flex space-x-4">
           <li>
@@ -52,9 +52,8 @@ const DesktopComponent = () => {
           <li>
             <a
               href="/#skill"
-              className={`hover:text-red-300 ${
-                activeLink === "skill" ? "text-red-500" : ""
-              }`}
+              className={`hover:text-red-300 ${activeLink === "skill" ? "text-red-500" : ""
+                }`}
               onClick={() => handleLinkClick("skill")}
             >
               Skills
@@ -63,9 +62,8 @@ const DesktopComponent = () => {
           <li>
             <a
               href="#"
-              className={`hover:text-red-300 ${
-                activeLink === "portfolio" ? "text-red-500" : ""
-              }`}
+              className={`hover:text-red-300 ${activeLink === "portfolio" ? "text-red-500" : ""
+                }`}
               onClick={() => handleLinkClick("portfolio")}
             >
               Portfolio
@@ -73,13 +71,12 @@ const DesktopComponent = () => {
           </li>
           <li className="relative">
             <a
-              className={`flex items-center hover:text-red-300 ${
-                dropdownOpen
+              className={`flex items-center hover:text-red-300 ${dropdownOpen
                   ? "text-red-500"
                   : activeLink === "about"
-                  ? "text-red-500"
-                  : ""
-              }`}
+                    ? "text-red-500"
+                    : ""
+                }`}
               id="dropdownDefaultButton"
               onClick={() => {
                 toggleDropdown();
@@ -88,9 +85,8 @@ const DesktopComponent = () => {
             >
               About Me{" "}
               <svg
-                className={`w-2.5 h-2.5 ml-2 transform ${
-                  dropdownOpen ? "rotate-180" : ""
-                }`}
+                className={`w-2.5 h-2.5 ml-2 transform ${dropdownOpen ? "rotate-180" : ""
+                  }`}
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -114,9 +110,8 @@ const DesktopComponent = () => {
                   <li>
                     <a
                       href="/#education"
-                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                        selectedItem === "Education" ? "text-red-500" : ""
-                      }`}
+                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${selectedItem === "Education" ? "text-red-500" : ""
+                        }`}
                       onClick={() => handleItemClick("Education")}
                     >
                       Education
@@ -125,9 +120,8 @@ const DesktopComponent = () => {
                   <li>
                     <a
                       href="/#volunteer"
-                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                        selectedItem === "Volunteer Work" ? "text-red-500" : ""
-                      }`}
+                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${selectedItem === "Volunteer Work" ? "text-red-500" : ""
+                        }`}
                       onClick={() => handleItemClick("Volunteer Work")}
                     >
                       Volunteer Work
@@ -136,9 +130,8 @@ const DesktopComponent = () => {
                   <li>
                     <a
                       href="/#experience"
-                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                        selectedItem === "Experience" ? "text-red-500" : ""
-                      }`}
+                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${selectedItem === "Experience" ? "text-red-500" : ""
+                        }`}
                       onClick={() => handleItemClick("Experience")}
                     >
                       Experience
@@ -147,9 +140,8 @@ const DesktopComponent = () => {
                   <li>
                     <a
                       href="#"
-                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                        selectedItem === "Certificate" ? "text-red-500" : ""
-                      }`}
+                      className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${selectedItem === "Certificate" ? "text-red-500" : ""
+                        }`}
                       onClick={() => handleItemClick("Certificate")}
                     >
                       Certificate

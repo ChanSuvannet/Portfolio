@@ -42,9 +42,9 @@ const AboutMeComponent = () => {
                     </h1>
                     <div className="relative inline-flex items-center justify-center w-full">
                       <hr className="w-64 h-1 my-8 bg-gray-400 border-0 rounded " />
-                      <div className="absolute px-4 -translate-x-1/2 left-1/2 flex items-center justify-center bg-[#f7f0fb] ">
+                      <div className="absolute px-4 -translate-x-1/2 left-1/2 flex items-center justify-center bg-white ">
                         <svg
-                          className="w-4 h-4 bg-[#faeffc] text-gray-400"
+                          className="w-4 h-4 bg-white  text-gray-400"
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
