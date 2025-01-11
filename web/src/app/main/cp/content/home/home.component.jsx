@@ -75,8 +75,8 @@ const HomeComponent = () => {
                   </div>
                 </div>
                 <div className="flex justify-center items-center pt-5">
-                  <Cover className="rounded-xl">
-                    <button className="text-lg font-bold w-[145px] h-[44px] text-red-300 hover:text-white">
+                  <Cover>
+                    <button className="w-[120px]  hover:text-white">
                       Hire Me
                     </button>
                   </Cover>
