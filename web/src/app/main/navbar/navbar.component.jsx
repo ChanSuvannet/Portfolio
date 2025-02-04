@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import DesktopComponent from "./desktop/desktop.component";
 import IpadComponent from "./ipad/ipad.component";
 import PhoneComponent from "./phone/phone.component";
+
 const Header = () => {
   const [isPhone, setIsPhone] = useState(window.innerWidth <= 600);
   const [isiPad, setIsiPad] = useState(

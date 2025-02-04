@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Message from "./../../../../helper/Message";
-import AboutMeComponent from "./about/about.component";
+import Message from "./../../../helper/Message";
+import AboutMeComponent from "./about/about";
 import EducationComponent from "./education/education.component";
 import ExperienceComponent from "./experience/experience.component";
-import HomeComponent from "./home/home.component";
+import HomeComponent from "./home/home";
 import SkillComponent from "./skill/skill.component";
 import VolunteerWorkComponent from "./volunteer-work/volunteer-work.component";
 

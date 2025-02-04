@@ -1,85 +1,51 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
 #root {
   /* background-image: url('/src/assets/svg/bg1.svg'); */
   background-color: white;
   background-size: cover;
 }
-
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  background-color: #F1F1F1;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 1 10em #df9637aa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.fixed {
-  position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
-}
-
-.group {
-  display: inline-block;
-  position: relative;
-}
-
-.tooltip-arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;
-}
-
-.tooltip[data-popper-placement^="left"]>.tooltip-arrow {
-  right: -4px;
-  border-width: 5px 0 5px 5px;
-  border-left-color: #000;
-}
-
-.tooltip {
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip[aria-expanded="true"] {
-  opacity: 1;
+/* Global Styles */
+/* :root {
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --font-code: 'Fira Code', monospace;
 } */
+
+/* Apply Fonts */
+body {
+  font-family: var(--font-secondary);
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+/* Paragraphs */
+p {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Code Blocks */
+code, pre {
+  font-family: var(--font-code);
+  background: #282c34;
+  color: #61dafb;
+  padding: 5px;
+  border-radius: 5px;
+}

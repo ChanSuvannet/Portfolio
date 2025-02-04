@@ -1,6 +1,6 @@
-import { BackgroundLines } from "../../../../../components/background-lines";
-import { Cover } from "../../../../../components/cover";
-import "./home.component.css";
+import { BackgroundLines } from "../../../../components/background-lines";
+import { Cover } from "../../../../components/cover";
+import "./style.css";
 import Profile from "/src/assets/image/pic.jpg";
 import Discord from "/src/assets/svg/discord.svg";
 import GitHub from "/src/assets/svg/github.svg";
@@ -24,7 +24,7 @@ const HomeComponent = () => {
                     />
                   </div>
                   <div className="flex flex-col justify-center items-center pt-5">
-                    <h1 className="text-[34px] max-600:text-[28px]">
+                    <h1 className="text-[34px] max-600:text-[28px] font-primary">
                       Chan Suvannet
                     </h1>
                     <p className="pt-2 text-xl max-600:text-[18px]">

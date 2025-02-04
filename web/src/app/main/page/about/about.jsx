@@ -1,4 +1,4 @@
-import "./about.component.css";
+import "./style.css";
 import Star from "/src/assets/icon/star.png";
 import Profile from "/src/assets/image/pic.jpg";
 import Coffee from "/src/assets/svg/cafe.svg";
@@ -6,28 +6,6 @@ import Certificate from "/src/assets/svg/certificate.svg";
 import Code from "/src/assets/svg/code.svg";
 import Rocket from "/src/assets/svg/rocket.svg";
 const AboutMeComponent = () => {
-  const cardsData = [
-    {
-      id: 1,
-      name: "Chan Suvanet",
-      designation: "Software Engineer",
-      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      designation: "UX Designer",
-      content:
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    },
-    {
-      id: 3,
-      name: "Jane Smith",
-      designation: "UX Designer",
-      content:
-        "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-    },
-  ];
   return (
     <div className="h-full px-5 flex justify-center items-center">
       <div className="w-full h-auto max-w-7xl flex justify-center ">
@@ -96,7 +74,7 @@ const AboutMeComponent = () => {
                   alt="Profile picture"
                 />
                 <div className="font-medium mt-2">
-                  <h1 className="text-[18px]">Chan Suvannet</h1>
+                  <h1 className="md:text-lg sm:text-md text-base">Chan Suvannet</h1>
                   <p className="text-[14px] mt-1 text-gray-600">Languages Spoken</p>
                   <div className="text-[12px] px] mt-1 text-gray-500 dark:text-gray-500">
                     Khmer, English, and French.
@@ -107,14 +85,8 @@ const AboutMeComponent = () => {
             <div className="flex justify-start px-6 py-5 flex-col h-auto w-full max-600:h-auto bg-white  rounded-3xl max-600:w-full  max-980:w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
               <div className="flex max-600:flex-col gap-2 max-600:gap-0 ">
                 <div className="w-[50%] max-600:w-full">
-                  <p className="text-[18px] max-600:text-base">
-                    I am Suvannet, a computer science student from the Institute
-                    of Technology of Cambodia. I am known for my positive
-                    mindset, high motivation, excellent communication skills,
-                    and profound respect for capable individuals. I always focus
-                    on self-development and lifelong learning.and more time to
-                    improve my self. to improve my self. to improve my self. to
-                    improve my self.
+                  <p className="md:text-lg sm:text-md text-base">
+                    I am Suvannet, a Computer Science student at the Institute of Technology of Cambodia. I am recognized for my positive mindset, strong motivation, and excellent communication skills. I have deep respect for talented individuals and a relentless drive for self-improvement. Passionate about lifelong learning, I constantly seek opportunities to grow, refine my skills, and expand my knowledge.
                   </p>
                 </div>
                 <div className="max-980:hidden mb-5 mt-5">
@@ -125,39 +97,39 @@ const AboutMeComponent = () => {
                     <div>
                       <div className=" w-full">
                         <div className="flex justify-between">
-                          <p className="text-[18px] max-600:text-base">
+                          <p className="md:text-lg sm:text-md text-base max-600:text-base">
                             Development
                           </p>
-                          <p className="text-[18px] max-600:text-base">80%</p>
+                          <p className="md:text-lg sm:text-md text-base max-600:text-base">80%</p>
                         </div>
                         <div className="mb-5 pt-3">
-                          <div className="bg-stroke bg-gray-200 relative h-[6px] w-full rounded-2xl max-600:h-1">
+                          <div className="bg-stroke bg-gray-200 relative h-[5px] w-full rounded-2xl max-600:h-1">
                             <div className="bg-red-400 absolute top-0 left-0 h-full w-4/5 rounded-2xl"></div>
                           </div>
                         </div>
                       </div>
                       <div className=" w-full">
                         <div className="flex justify-between">
-                          <p className="text-[18px] max-600:text-base">
+                          <p className="md:text-lg sm:text-md text-base max-600:text-base">
                             Problem-Solving
                           </p>
-                          <p className="text-[18px] max-600:text-base">60%</p>
+                          <p className="md:text-lg sm:text-md text-base max-600:text-base">60%</p>
                         </div>
                         <div className="mb-5 pt-3 max-600:text-base">
-                          <div className="bg-stroke bg-gray-200 relative h-[6px] w-full rounded-2xl max-600:h-1">
+                          <div className="bg-stroke bg-gray-200 relative h-[5px] w-full rounded-2xl max-600:h-1">
                             <div className="bg-yellow-400 absolute top-0 left-0 h-full w-4/6 rounded-2xl"></div>
                           </div>
                         </div>
                       </div>
                       <div className=" w-full">
                         <div className="flex justify-between">
-                          <p className="text-[18px] max-600:text-base">
+                          <p className="md:text-lg sm:text-md text-base max-600:text-base">
                             Communication
                           </p>
-                          <p className="text-[18px] max-600:text-base">91%</p>
+                          <p className="md:text-lg sm:text-md text-base max-600:text-base">91%</p>
                         </div>
                         <div className="mb-5 pt-3">
-                          <div className="bg-stroke bg-gray-200 relative h-[6px] w-full rounded-2xl max-600:h-1">
+                          <div className="bg-stroke bg-gray-200 relative h-[5px] w-full rounded-2xl max-600:h-1">
                             <div className="bg-purple-400 absolute top-0 left-0 h-full w-11/12 rounded-2xl"></div>
                           </div>
                         </div>
@@ -179,9 +151,9 @@ const AboutMeComponent = () => {
                     alt=""
                   />
                 </div>
-                <div>
-                  <h1 className="font-[800] text-2xl max-600:text-[18px]">5</h1>
-                  <p className="mt-2 max-600:text-[10px] max-600:mt-0">
+                <div className="w-full">
+                  <h1 className="md:text-2xl sm:text-md text-base">5</h1>
+                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0 w-full">
                     Project Completed
                   </p>
                 </div>
@@ -195,8 +167,8 @@ const AboutMeComponent = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="font-bold text-2xl max-600:text-[18px]">2</h1>
-                  <p className="mt-2 max-600:text-[10px] max-600:mt-0">
+                  <h1 className="md:text-2xl sm:text-md text-base">2</h1>
+                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
                     Project Ongoing
                   </p>
                 </div>
@@ -210,10 +182,10 @@ const AboutMeComponent = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="font-[800] text-2xl max-600:text-[18px]">
+                  <h1 className="md:text-2xl sm:text-md text-base">
                     85
                   </h1>
-                  <p className="mt-2 max-600:text-[10px] max-600:mt-0">
+                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
                     Cup of Coffee
                   </p>
                 </div>
@@ -227,8 +199,8 @@ const AboutMeComponent = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="font-bold text-2xl max-600:text-[18px]">6</h1>
-                  <p className="mt-2 max-600:text-[10px] max-600:mt-0">
+                  <h1 className="md:text-2xl sm:text-md text-base">6</h1>
+                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
                     Certificate
                   </p>
                 </div>
@@ -237,10 +209,10 @@ const AboutMeComponent = () => {
           </div>
 
           <div className="flex justify-center mb-10 max-600:my-8 max-600:mb-8 max-600:justify-start">
-            <p className="text-[18px] max-600:text-[14px]">
+            <p className="md:text-lg sm:text-md text-base">
               Let&apos;s start a conversation to explore new technology
               together.
-              <strong className="text-red-400 text-[18px] max-600:text-[14px] transition-colors duration-300 hover:text-red-200 cursor-pointer">
+              <strong className="text-red-400 md:text-lg sm:text-md text-base max-600:text-[14px] transition-colors duration-300 hover:text-red-200 cursor-pointer">
                 {" "}
                 Click here{" "}
               </strong>
