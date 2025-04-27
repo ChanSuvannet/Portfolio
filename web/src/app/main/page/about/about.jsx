@@ -15,11 +15,15 @@ const AboutMeComponent = () => {
               <div className="flex flex-wrap">
                 <div className="w-full px-4">
                   <div className="mx-auto  max-w-[510px] text-center">
-                    <h1 className="mb-2 block text-3xl font-bold text-primary">
-                      Hi there, I'm Chan Suvannet 👋
-                    </h1>
+                    <div className="w-full flex justify-center rounded-full">
+                      <img className="w-14 h-14" src="https://lh3.googleusercontent.com/a/ACg8ocLwnU6pFHzGJX_V7X1iM4-BrlFso2NwYtH2IFrlFKU73CEuirNg=s317-c-no" alt="" aria-hidden="true" data-noaft="" />
+                    </div>
+                    <div className="flex justify-center items-start mt-5 gap-2">
+                      <img className="pt-[1.2px]" title=":copilot:" alt=":copilot:" src="https://github.githubassets.com/images/icons/emoji/copilot.png" height="20" width="20" align="absmiddle" />
+                      <span height="20" width="20" >I'm not a great programmer, I'm just a good programmer with great habits. </span>
+                    </div>
                     <div className="relative inline-flex items-center justify-center w-full">
-                      <hr className="w-64 h-1 my-8 bg-gray-400 border-0 rounded " />
+                      <hr className="w-64 h-[2px] my-8 bg-gray-400 border-0 rounded " />
                       <div className="absolute px-4 -translate-x-1/2 left-1/2 flex items-center justify-center bg-white ">
                         <svg
                           className="w-4 h-4 bg-white  text-gray-400"
