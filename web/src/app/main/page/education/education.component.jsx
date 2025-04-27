@@ -22,11 +22,12 @@ const EducationComponent = () => {
               <div>
                 <ol className="relative border-s-2 border-gray-400">
                   <li className="mb-10 ms-7">
-                    <span className="absolute flex items-center justify-center w-10 h-10 bg-white rounded-full -start-5 ring-4 ring-white">
-                      <a href="https://itc.edu.kh/" target="_blank" rel="noopener noreferrer">
-                        <img src={ItcLogo} alt="ITC Logo" />
-                      </a>
-                    </span>
+                   <span className="absolute flex items-center justify-center w-10 h-10 bg-white rounded-full -start-5 ring-4 ring-white">
+  <a href="https://itc.edu.kh/" target="_blank" rel="noopener noreferrer">
+    <img src={ItcLogo} alt="ITC Logo" />
+  </a>
+</span>
+
                     <p className="font-medium leading-tight pt-1">
                       Information and Communication Engineering
                     </p>

@@ -60,7 +60,7 @@ const VolunteerWorkComponent = () => {
       {/* Main Content */}
       <div className="flex justify-center items-start flex-grow mt-10 md:px-4 sm:px-4 px-0">
         <div className="w-full max-w-7xl">
-          <div className="text-center">
+          <div className="text-center mb-5">
             <div className="flex justify-center items-center gap-2 px-5 md:px-0 sm:px-0">
               <img
                 className="w-6 h-6"
