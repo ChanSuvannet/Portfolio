@@ -2,7 +2,7 @@ import { mdiCircle } from '@mdi/js';
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
-import { default as Certificate1, default as Certificate2, default as Certificate3 } from "/src/assets/certificate/image.png";
+import { default as Certificate1, default as Certificate2, default as Certificate3, default as Certificate4 } from "/src/assets/certificate/itc.png";
 const data = [
   {
     title: "Youth Development in Digital Society: Rising Star in the North",
@@ -13,9 +13,9 @@ const data = [
   },
   {
     title: "CODE-C 2023 Developer Conference and Tech Expo",
-    role: "Technical Support - CADT | 2023",
+    role: "Logistics and Technical Support - CADT | 2023",
     description:
-      "Provided technical assistance during the conference, including setup and troubleshooting of presentation equipment, managing live coding sessions, and supporting exhibitors with their tech displays to ensure a seamless event experience.",
+      "Supported the conference by managing technical setups, troubleshooting equipment issues, organizing event logistics, assisting exhibitors with their tech displays, and ensuring a seamless overall experience for participants.",
     certificate: Certificate2,
   },
   {
@@ -25,6 +25,14 @@ const data = [
       "Supported the technical infrastructure for the SEA Games by managing communication systems, coordinating with event IT teams, and ensuring reliable network connectivity for media and organizers, contributing to the success of this regional sporting event.",
     certificate: Certificate3,
   },
+  {
+    title: "GIC Family Gathering",
+    role: "Logistics Team - ITC | 2024",
+    description:
+      "Assisted in organizing the event by managing inventory, coordinating logistics, and procuring essential items to ensure a smooth and successful gathering.",
+    certificate: Certificate4,
+  }
+
 ];
 
 const VolunteerWorkComponent = () => {
@@ -83,17 +91,13 @@ const VolunteerWorkComponent = () => {
                   key={index}
                   className="min-w-full flex flex-col md:flex-row items-start bg-white rounded-2xl p-6 transform hover:scale-[1.02] transition-all duration-300 max-w-4xl mx-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
                 >
-                  <img
-                    src={item.certificate}
-                    alt={`${item.title} Certificate`}
-                    className="w-[250px] sm:w-[370px] sm:h-[200px] md:w-[370px] md:h-[200px] flex items-center justify-center rounded-lg border-4 border-indigo-100 cursor-pointer"
-                    onClick={() => openModal(item.certificate)}
-                  />
 
                   <div className="w-full md:pl-5 sm:pl-5 md:mt-0 sm:mt-0 mt-1">
-                    <h3 className="text-lg font-bold text-gray-800 mb-2">
-                      {item.title}
-                    </h3>
+                    <div className="flex ">
+                      <h3 className="text-lg font-bold text-gray-800 mb-2">
+                        {item.title} | <span onClick={() => openModal(item.certificate)} className='text-blue-400 cursor-pointer'> Certificate</span>
+                      </h3>
+                    </div>
                     <p className="text-gray-500 italic text-sm mb-3">
                       {item.role}
                     </p>

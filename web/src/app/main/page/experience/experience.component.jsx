@@ -5,7 +5,7 @@ const ExperienceComponent = () => {
     <div className="flex justify-center items-center h-full px-9 mt-8">
       <div className="w-full h-auto max-w-7xl">
         <div className="flex justify-center pt-2">
-          <h1 className="text-xl text-center font-bold max-600:text-2xl">👩🏻‍💻ᝰ.ᐟ Work Experience</h1>
+          <h1 className="text-xl text-center font-bold max-600:text-2xl">💻ᝰ.ᐟ Work Experience</h1>
         </div>
 
         <div className="flex justify-center gap-5 pt-6 items-center w-full">
