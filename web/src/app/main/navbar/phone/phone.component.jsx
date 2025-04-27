@@ -43,7 +43,7 @@ const PhoneComponent = () => {
   return (
     <div>
       {/* Top Header */}
-      <header className="flex flex-row justify-between items-center pl-4 pr-9 relative z-20">
+      <header className="flex flex-row justify-between items-center pl-4 pr-9 relative z-20 pt-2">
         <div
           onClick={toggleNavigation}
           className="flex justify-center items-center w-12 h-10 rounded-xl transition hover:bg-slate-100 cursor-pointer"

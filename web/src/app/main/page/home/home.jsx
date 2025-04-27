@@ -10,7 +10,7 @@ import Mouse from "/src/assets/svg/mouse.svg";
 const HomeComponent = () => {
   return (
     <BackgroundLines >
-      <div className="flex justify-center items-center h-full px-9 my-bg z-20 relative">
+      <div className="flex justify-center items-center h-full px-9 my-bg z-1 relative">
         <div className="w-full h-screen  flex justify-center items-center">
           <div className="flex flex-col justify-around h-full">
             <div>

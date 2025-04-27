@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import "./desktop.component.css";
 
@@ -15,10 +16,10 @@ const navLinks = [
 ];
 
 const dropdownItems = [
-  { label: "Education", href: "/#education" },
-  { label: "Volunteer Work", href: "/#volunteer" },
-  { label: "Experience", href: "/#experience" },
-  { label: "Certificate", href: "#" },
+  { label: "Education", href: "/#education", id: "education" },
+  { label: "Volunteer", href: "/#volunteer", id: "volunteer" },
+  { label: "Experience", href: "/#experience", id: "experience" },
+  { label: "Certificate", href: "/#certificate", id: "certificate" },
 ];
 
 const DesktopComponent = () => {
@@ -29,15 +30,21 @@ const DesktopComponent = () => {
 
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
-    setDropdownOpen(false);
-  };
-
   const handleMouseEnter = () => setImageSrc(HeaderImageHover);
   const handleMouseLeave = () => setImageSrc(HeaderTradImage);
 
   const handleLinkClick = (link) => setActiveLink(link);
+
+  const handleItemClick = (item, id) => {
+    setSelectedItem(item);
+    setDropdownOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      console.warn(`Section with id "${id}" not found`);
+    }
+  };
 
   return (
     <header className="flex justify-between px-9 items-center large-screen-header my-bg1 relative z-20">
@@ -56,7 +63,7 @@ const DesktopComponent = () => {
 
           {navLinks.map((link) =>
             link.id !== "about" ? (
-              <li key={link.id}>
+              <motion.li key={link.id} whileTap={{ scale: 0.9 }}>
                 <a
                   href={link.href}
                   className={`hover:text-red-300 ${activeLink === link.id ? "text-red-500" : ""
@@ -65,11 +72,15 @@ const DesktopComponent = () => {
                 >
                   {link.label}
                 </a>
-              </li>
+              </motion.li>
             ) : (
-              <li key={link.id} className="relative">
+              <motion.li
+                key={link.id}
+                className="relative"
+                whileTap={{ scale: 0.9 }}
+              >
                 <a
-                  href={link.href}
+                  href="#"
                   className={`flex items-center hover:text-red-300 ${dropdownOpen || activeLink === "about" ? "text-red-500" : ""
                     }`}
                   onClick={(e) => {
@@ -97,17 +108,21 @@ const DesktopComponent = () => {
                 </a>
 
                 {dropdownOpen && (
-                  <div className="absolute top-full left-0 z-50 bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-52 mt-2">
-                    <ul className="flex flex-col text-sm text-gray-700">
+                  <div
+                    className="absolute top-full left-0 z-50 bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-52 mt-2"
+                    onClick={(e) => e.stopPropagation()} // Prevent parent events
+                  >
+                    <ul className="flex flex-col text-sm text-gray-700 z-9999">
                       {dropdownItems.map((item) => (
-                        <li key={item.label}>
+                        <li
+                          key={item.id}
+                          className="cursor-pointer"
+                        >
                           <a
-                            href={item.href}
                             className={`block px-4 py-2 hover:text-red-300 ${selectedItem === item.label ? "text-red-500" : ""
                               }`}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              handleItemClick(item.label);
+                            onClick={() => {
+                              handleItemClick(item.label, item.id);
                             }}
                           >
                             {item.label}
@@ -117,7 +132,7 @@ const DesktopComponent = () => {
                     </ul>
                   </div>
                 )}
-              </li>
+              </motion.li>
             )
           )}
         </ul>
@@ -132,26 +147,30 @@ const DesktopComponent = () => {
       {/* Right Nav */}
       <nav className="header-nav text-gray-500">
         <ul className="flex space-x-4">
-          <li>
+          <motion.li whileTap={{ scale: 0.9 }}>
             <a href="#faq">
               <img src={HeaderFacebookImage} className="w-6 h-6" alt="Facebook" />
             </a>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li whileTap={{ scale: 0.9 }}>
             <a href="#faq">
-              <img src={HeaderInstagramImage} className="w-6 h-6" alt="Instagram" />
+              <img
+                src={HeaderInstagramImage}
+                className="w-6 h-6"
+                alt="Instagram"
+              />
             </a>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li whileTap={{ scale: 0.9 }}>
             <a href="#faq">
               <img src={HeaderTelegramImage} className="w-6 h-6" alt="Telegram" />
             </a>
-          </li>
-          <li>
+          </motion.li>
+          <motion.li whileTap={{ scale: 0.9 }}>
             <a href="#contact" className="text-red-300 hover:text-gray-300">
               Quick Contact
             </a>
-          </li>
+          </motion.li>
         </ul>
       </nav>
     </header>
