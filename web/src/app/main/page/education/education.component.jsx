@@ -2,16 +2,17 @@ import Cisco from "/src/assets/branch/cisco.png";
 import Codecademey from "/src/assets/branch/codecademey.png";
 import Coursera from "/src/assets/branch/coursera.png";
 import Freecodecamp from "/src/assets/branch/freecodecamp.png";
+import Lab from "/src/assets/branch/lab.png";
 import Mpwt from "/src/assets/branch/mpwt.png";
+import Saylor from "/src/assets/branch/saylor.png";
 import Udermy from "/src/assets/branch/udermy.png";
-import Youtube from "/src/assets/branch/youtube.png";
 import HightSchool from "/src/assets/svg/hight-school.svg";
 const EducationComponent = () => {
   return (
     <div className="flex justify-center items-center h-full px-5">
       <div className="w-full h-auto max-w-7xl ">
         <div className="flex justify-start pt-2 max-980:justify-center">
-          <h1 className="text-4xl font-bold max-600:text-2xl">Education</h1>
+          <h1 className="text-2xl font-bold max-600:text-2xl">🎓 Education</h1>
         </div>
         <div className="flex justify-center gap-5 pt-6 i max-980:flex-col max-980:w-full max-600:flex-col">
           {/* school learn */}
@@ -85,16 +86,16 @@ const EducationComponent = () => {
                   </svg>
                 </div>
               </div>
-              <div className="flex flex-wrap justify-between -mt-5">
-                <img src={Udermy} alt="" className="p-2 w-1/4 h-20 object-contain" />
-                <img src={Coursera} alt="" className="p-2 w-1/4 h-20 object-contain" />
-                <img src={Codecademey} alt="" className="p-2 w-1/4 h-20 object-contain" />
-                <img src={Cisco} alt="" className="pt-1 mt-4 w-1/4 h-12 object-contain" />
-                <img src={Youtube} alt="" className="p-2 w-1/4 h-20 object-contain" />
-                <img src={Freecodecamp} alt="" className="p-2 w-1/4 h-20 object-contain" />
-                <img src={Mpwt} alt="" className="p-2 w-1/4 h-20 object-contain" />
+              <div className="flex flex-wrap justify-around gap-6">
+                <img src={Udermy} alt="Udemy" className="w-28 h-20 object-contain" />
+                <img src={Coursera} alt="Coursera" className="w-28 h-20 object-contain" />
+                <img src={Codecademey} alt="Codecademy" className="w-28 h-20 object-contain" />
+                <img src={Freecodecamp} alt="FreeCodeCamp" className="w-28 h-22 scale-105 object-contain" />
+                <img src={Saylor} alt="Saylor" className="w-28 h-16 object-contain" />
+                <img src={Lab} alt="Lab" className="w-28 h-14 mt-1 object-contain" />
+                <img src={Cisco} alt="Cisco" className="w-28 h-[40px] mt-4 object-contain" />
+                <img src={Mpwt} alt="MPWT" className="w-28 h-14 object-contain" />
               </div>
-
             </div>
           </div>
         </div>

@@ -1,204 +1,171 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import "./phone.component.css"; // Import the CSS file for custom styles
+import "./phone.component.css";
 import Close from "/src/assets/icon/cross.png";
 import Icon from "/src/assets/icon/menu.png";
 import Coffee from "/src/assets/logo/coffee-cup.png";
 import HeaderFacebookImage from "/src/assets/logo/facebook.png";
 import HeaderInstagramImage from "/src/assets/logo/instagram.png";
 import HeaderTelegramImage from "/src/assets/logo/telegram.png";
+
+// Data arrays
+const navLinks = [
+  { label: "Skills", href: "/#skill", id: "skill" },
+  { label: "Portfolio", href: "#", id: "portfolio" },
+  { label: "About Me", href: "#", id: "about" },
+];
+
+const dropdownItems = [
+  { label: "Education", href: "/#education" },
+  { label: "Volunteer Work", href: "/#volunteer" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Certificate", href: "#" },
+];
+
 const PhoneComponent = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [activeLink, setActiveLink] = useState(null);
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+  const toggleNavigation = () => setNavOpen(!navOpen);
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+
+  const handleLinkClick = (linkId) => {
+    setActiveLink(linkId);
   };
 
-  const handleItemClick = (item) => {
-    setSelectedItem(item);
+  const handleItemClick = (itemLabel) => {
+    setSelectedItem(itemLabel);
     setDropdownOpen(false);
-  };
-
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
-  };
-  const toggleNavigation = () => {
-    setNavOpen(!navOpen);
   };
 
   return (
     <div>
-      <header className="flex flex-row justify-between items-center  pl-4 pr-9 relative z-20">
+      {/* Top Header */}
+      <header className="flex flex-row justify-between items-center pl-4 pr-9 relative z-20">
         <div
           onClick={toggleNavigation}
-          className="flex justify-center items-center w-12 h-10 opacity-1  rounded-xl transition duration-300 ease-in-out hover:bg-slate-100  focus:bg-slate-100 "
+          className="flex justify-center items-center w-12 h-10 rounded-xl transition hover:bg-slate-100 cursor-pointer"
         >
-          <img src={Icon} className="w-8 h-8 cursor-pointer hover:scale-90" />
+          <img src={Icon} alt="Menu Icon" className="w-8 h-8 hover:scale-90 transition" />
         </div>
-        <div className="header flex items-center justify-center gap-1">
+        <div className="flex items-center gap-1">
           <h1 className="text-2xl">Coffee</h1>
           <img src={Coffee} alt="Coffee logo" className="w-8 h-8" />
         </div>
       </header>
 
-      {/* navigation is open */}
-      <div className={`navigation ${navOpen ? "open" : "close"}`}>
-        <header className="flex flex-row justify-between items-center px-9 shadow-sm">
-          <div className="header flex items-center justify-center gap-1">
-            <h1 className="text-2xl" onClick={toggleNavigation}>
-              Coffee
-            </h1>
-            <img src={Coffee} alt="Coffee logo" className="w-8 h-8" />
-          </div>
-          <div onClick={toggleNavigation}>
-            <img
-              src={Close}
-              className="w-4 h-4 cursor-pointer hover:scale-90 mt-2 "
-            />
-          </div>
-        </header>
-        <header className="flex justify-between px-9 items-start bg-color-cus large-screen-header">
-          <nav className="header-nav text-gray-800 ">
-            <br />
-            <ul className="flex flex-col ">
-              <li>
-                <a
-                  href="/#skill"
-                  className={`hover:text-red-300 ${
-                    activeLink === "skill" ? "text-red-500" : ""
-                  }`}
-                  onClick={() => handleLinkClick("skill")}
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className={`hover:text-red-300 ${
-                    activeLink === "portfolio" ? "text-red-500" : ""
-                  }`}
-                  onClick={() => handleLinkClick("portfolio")}
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li className="relative">
-                <a
-                  className={`flex items-center hover:text-red-300 ${
-                    dropdownOpen
-                      ? "text-red-500"
-                      : activeLink === "about"
-                      ? "text-red-500"
-                      : ""
-                  }`}
-                  id="dropdownDefaultButton"
-                  onClick={() => {
-                    toggleDropdown();
-                    handleLinkClick("about");
-                  }}
-                >
-                  About Me{" "}
-                  <svg
-                    className={`w-2.5 h-2.5 ml-2 transform ${
-                      dropdownOpen ? "rotate-180" : ""
-                    }`}
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 10 6"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M1 1l4 4 4-4"
-                    />
-                  </svg>
-                </a>
-                {dropdownOpen && (
-                  <div
-                    id="dropdown"
-                    className="absolute bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-52 mt-2"
-                  >
-                    <ul className="flex flex-col text-sm text-gray-700">
-                      <li>
-                        <a
-                          href="/#education"
-                          className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                            selectedItem === "Education" ? "text-red-500" : ""
+      {/* Navigation Drawer */}
+      <AnimatePresence>
+        {navOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{
+              type: "tween",
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+            className="fixed top-0 left-0 w-full h-full bg-white z-30 shadow-lg overflow-y-auto"
+          >
+            {/* Drawer Header */}
+            <header className="flex flex-row justify-between items-center px-9 py-4 shadow-sm">
+              <div className="flex items-center gap-1">
+                <h1 className="text-2xl cursor-pointer" onClick={toggleNavigation}>
+                  Coffee
+                </h1>
+                <img src={Coffee} alt="Coffee logo" className="w-8 h-8" />
+              </div>
+              <div onClick={toggleNavigation} className="cursor-pointer">
+                <img src={Close} alt="Close Icon" className="w-6 h-6 hover:scale-90 transition" />
+              </div>
+            </header>
+
+            {/* Drawer Links */}
+            <nav className="flex flex-col px-9 py-6 text-gray-800">
+              <ul className="flex flex-col gap-6 text-lg">
+                {navLinks.map((link) => (
+                  link.id !== "about" ? (
+                    <li key={link.id}>
+                      <a
+                        href={link.href}
+                        className={`hover:text-red-400 ${activeLink === link.id ? "text-red-500" : ""}`}
+                        onClick={() => handleLinkClick(link.id)}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ) : (
+                    <li key={link.id} className="relative">
+                      <div
+                        className={`flex items-center justify-between hover:text-red-400 cursor-pointer ${activeLink === "about" ? "text-red-500" : ""
                           }`}
-                          onClick={() => handleItemClick("Education")}
+                        onClick={() => {
+                          toggleDropdown();
+                          handleLinkClick("about");
+                        }}
+                      >
+                        {link.label}
+                        <motion.svg
+                          animate={{ rotate: dropdownOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="w-4 h-4 ml-2"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
                         >
-                          Education
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                            selectedItem === "Volunteer Work"
-                              ? "text-red-500"
-                              : ""
-                          }`}
-                          onClick={() => handleItemClick("Volunteer Work")}
-                        >
-                          Volunteer Work
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                            selectedItem === "Experience" ? "text-red-500" : ""
-                          }`}
-                          onClick={() => handleItemClick("Experience")}
-                        >
-                          Experience
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#"
-                          className={`block px-4 py-2 text-gray-800 hover:text-red-300 ${
-                            selectedItem === "Certificate" ? "text-red-500" : ""
-                          }`}
-                          onClick={() => handleItemClick("Certificate")}
-                        >
-                          Certificate
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </li>
-            </ul>
-          </nav>
-          <br />
-          <nav className="header-nav text-gray-500">
-            <ul className="flex space-x-4">
-              <li>
-                <a href="#faq">
-                  <img src={HeaderFacebookImage} className="w-6 h-6" alt="" />
-                </a>
-              </li>
-              <li>
-                <a href="#faq">
-                  <img src={HeaderInstagramImage} className="w-6 h-6" alt="" />
-                </a>
-              </li>
-              <li>
-                <a href="#faq">
-                  <img src={HeaderTelegramImage} className="w-6 h-6" alt="" />
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-      </div>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </motion.svg>
+                      </div>
+
+                      <AnimatePresence>
+                        {dropdownOpen && (
+                          <motion.ul
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="flex flex-col gap-2 ml-4 mt-2"
+                          >
+                            {dropdownItems.map((item) => (
+                              <li key={item.label}>
+                                <a
+                                  href={item.href}
+                                  className={`block px-2 py-1 hover:text-red-400 ${selectedItem === item.label ? "text-red-500" : ""
+                                    }`}
+                                  onClick={() => handleItemClick(item.label)}
+                                >
+                                  {item.label}
+                                </a>
+                              </li>
+                            ))}
+                          </motion.ul>
+                        )}
+                      </AnimatePresence>
+                    </li>
+                  )
+                ))}
+              </ul>
+            </nav>
+
+            {/* Social Media Links */}
+            <div className="flex justify-center gap-6 py-6">
+              <a href="#facebook">
+                <img src={HeaderFacebookImage} alt="Facebook" className="w-6 h-6" />
+              </a>
+              <a href="#instagram">
+                <img src={HeaderInstagramImage} alt="Instagram" className="w-6 h-6" />
+              </a>
+              <a href="#telegram">
+                <img src={HeaderTelegramImage} alt="Telegram" className="w-6 h-6" />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
