@@ -1,5 +1,7 @@
+import { mdiStar, mdiStarHalfFull } from '@mdi/js';
+import Icon from '@mdi/react';
+import { motion } from 'framer-motion';
 import "./style.css";
-import Star from "/src/assets/icon/star.png";
 import Profile from "/src/assets/image/pic.jpg";
 import Coffee from "/src/assets/svg/cafe.svg";
 import Certificate from "/src/assets/svg/certificate.svg";
@@ -19,21 +21,12 @@ const AboutMeComponent = () => {
                       <img className="w-14 h-14" src="https://lh3.googleusercontent.com/a/ACg8ocLwnU6pFHzGJX_V7X1iM4-BrlFso2NwYtH2IFrlFKU73CEuirNg=s317-c-no" alt="" aria-hidden="true" data-noaft="" />
                     </div>
                     <div className="flex justify-center items-start mt-5 gap-2">
-                      <img className="pt-[1.2px]" title=":copilot:" alt=":copilot:" src="https://github.githubassets.com/images/icons/emoji/copilot.png" height="20" width="20" align="absmiddle" />
                       <span height="20" width="20" >I'm not a great programmer, I'm just a good programmer with great habits. </span>
                     </div>
                     <div className="relative inline-flex items-center justify-center w-full">
                       <hr className="w-64 h-[2px] my-8 bg-gray-400 border-0 rounded " />
                       <div className="absolute px-4 -translate-x-1/2 left-1/2 flex items-center justify-center bg-white ">
-                        <svg
-                          className="w-4 h-4 bg-white  text-gray-400"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="currentColor"
-                          viewBox="0 0 18 14"
-                        >
-                          <path d="M6 0H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3H2a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Zm10 0h-4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4v1a3 3 0 0 1-3 3h-1a1 1 0 0 0 0 2h1a5.006 5.006 0 0 0 5-5V2a2 2 0 0 0-2-2Z" />
-                        </svg>
+                        <img className="pt-[1.2px]" title=":copilot:" alt=":copilot:" src="https://github.githubassets.com/images/icons/emoji/copilot.png" height="20" width="20" align="absmiddle" />
                       </div>
                     </div>
                     <p className="text-base text-body-color dark:text-dark-6">
@@ -44,32 +37,42 @@ const AboutMeComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center gap-3 my-10">
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src={Star}
-                  alt="Profile picture"
-                />
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src={Star}
-                  alt="Profile picture"
-                />
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src={Star}
-                  alt="Profile picture"
-                />
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src={Star}
-                  alt="Profile picture"
-                />
-                <img
-                  className="w-8 h-8 rounded-full"
-                  src={Star}
-                  alt="Profile picture"
-                />
+              <div className="flex justify-center gap-3 my-5">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Icon path={mdiStar} size={1} className='text-red-400' />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Icon path={mdiStar} size={1} className='text-red-400' />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Icon path={mdiStar} size={1} className='text-red-400' />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Icon path={mdiStar} size={1} className='text-red-400' />
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                >
+                  <Icon path={mdiStarHalfFull} size={1} className='text-red-400' />
+                </motion.div>
               </div>
               <div className="flex flex-col justify-center items-center text-center">
                 <img
@@ -107,7 +110,7 @@ const AboutMeComponent = () => {
                           <p className="md:text-lg sm:text-md text-base max-600:text-base">80%</p>
                         </div>
                         <div className="mb-5 pt-3">
-                          <div className="bg-stroke bg-gray-200 relative h-[5px] w-full rounded-2xl max-600:h-1">
+                          <div className="bg-stroke bg-gray-200 relative h-[4px] w-full rounded-2xl max-600:h-1">
                             <div className="bg-red-400 absolute top-0 left-0 h-full w-4/5 rounded-2xl"></div>
                           </div>
                         </div>
@@ -117,11 +120,11 @@ const AboutMeComponent = () => {
                           <p className="md:text-lg sm:text-md text-base max-600:text-base">
                             Problem-Solving
                           </p>
-                          <p className="md:text-lg sm:text-md text-base max-600:text-base">60%</p>
+                          <p className="md:text-lg sm:text-md text-base max-600:text-base">85%</p>
                         </div>
-                        <div className="mb-5 pt-3 max-600:text-base">
-                          <div className="bg-stroke bg-gray-200 relative h-[5px] w-full rounded-2xl max-600:h-1">
-                            <div className="bg-yellow-400 absolute top-0 left-0 h-full w-4/6 rounded-2xl"></div>
+                        <div className="mb-5 pt-3">
+                          <div className="bg-stroke bg-gray-200 relative h-[4px] w-full rounded-2xl max-600:h-1">
+                            <div className="bg-yellow-400 absolute top-0 left-0 h-full w-10/12 rounded-2xl"></div>
                           </div>
                         </div>
                       </div>
@@ -133,7 +136,7 @@ const AboutMeComponent = () => {
                           <p className="md:text-lg sm:text-md text-base max-600:text-base">91%</p>
                         </div>
                         <div className="mb-5 pt-3">
-                          <div className="bg-stroke bg-gray-200 relative h-[5px] w-full rounded-2xl max-600:h-1">
+                          <div className="bg-stroke bg-gray-200 relative h-[4px] w-full rounded-2xl max-600:h-1">
                             <div className="bg-purple-400 absolute top-0 left-0 h-full w-11/12 rounded-2xl"></div>
                           </div>
                         </div>
