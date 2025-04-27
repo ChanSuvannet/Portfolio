@@ -1,13 +1,12 @@
+import { mdiClose, mdiMenu } from '@mdi/js';
+import Icon from '@mdi/react';
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import "./phone.component.css";
-import Close from "/src/assets/icon/cross.png";
-import Icon from "/src/assets/icon/menu.png";
 import Coffee from "/src/assets/logo/coffee-cup.png";
 import HeaderFacebookImage from "/src/assets/logo/facebook.png";
 import HeaderInstagramImage from "/src/assets/logo/instagram.png";
 import HeaderTelegramImage from "/src/assets/logo/telegram.png";
-
 // Data arrays
 const navLinks = [
   { label: "Skills", href: "/#skill", id: "skill" },
@@ -48,7 +47,10 @@ const PhoneComponent = () => {
           onClick={toggleNavigation}
           className="flex justify-center items-center w-12 h-10 rounded-xl transition hover:bg-slate-100 cursor-pointer"
         >
-          <img src={Icon} alt="Menu Icon" className="w-8 h-8 hover:scale-90 transition" />
+          <Icon
+            path={mdiMenu}
+            size={1.2}
+          />
         </div>
         <div className="flex items-center gap-1">
           <h1 className="text-2xl">Coffee</h1>
@@ -79,7 +81,10 @@ const PhoneComponent = () => {
                 <img src={Coffee} alt="Coffee logo" className="w-8 h-8" />
               </div>
               <div onClick={toggleNavigation} className="cursor-pointer">
-                <img src={Close} alt="Close Icon" className="w-6 h-6 hover:scale-90 transition" />
+                <Icon
+                  path={mdiClose}
+                  size={1.2}
+                />
               </div>
             </header>
 

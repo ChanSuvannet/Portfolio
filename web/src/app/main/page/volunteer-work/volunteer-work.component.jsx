@@ -1,6 +1,8 @@
+import { mdiCircle } from '@mdi/js';
+import Icon from '@mdi/react';
+import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { default as Certificate1, default as Certificate2, default as Certificate3 } from "/src/assets/certificate/image.png";
-
 const data = [
   {
     title: "Youth Development in Digital Society: Rising Star in the North",
@@ -68,6 +70,7 @@ const VolunteerWorkComponent = () => {
               <h1 className="text-2xl font-bold max-600:text-2xl">
                 Volunteer Work
               </h1>
+
             </div>
           </div>
           <div className="relative w-full max-w-7xl mx-auto overflow-hidden mb-4 px-5">
@@ -105,14 +108,21 @@ const VolunteerWorkComponent = () => {
           {/* Navigation Dots */}
           <div className="flex justify-center gap-2 mb-4">
             {data.map((_, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${currentSlide === index
-                  ? 'bg-black scale-125'
-                  : 'bg-gray-300 hover:bg-gray-500'
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.1 }}
+                className={`flex items-center text-sm w-[18px] h-[18px] px-1 py-1 rounded-full transition-all duration-200 ${currentSlide === index
+                  ? 'bg-white text-black  border border-black'
+                  : 'text-gray-500 hover:text-black border-gray-300 '
                   }`}
-              />
+              >
+                <Icon
+                  path={mdiCircle}
+                  size={0.5}
+                />
+              </motion.button>
             ))}
           </div>
         </div>
