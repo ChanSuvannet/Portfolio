@@ -199,29 +199,31 @@ const SkillComponent = () => {
         {/* Soft Skills */}
         <div className="mb-8">
           <p className="text-sm text-center mb-3 font-semibold">Soft Skills</p>
-          <div className="flex gap-4 justify-center">
+          <div className="w-full grid grid-cols-5 max-600:grid-cols-1 gap-1 justify-items-center">
             <div className="flex items-center">
               <span className="text-xl">🥇</span>
-              <span className="ml-2">Teamwork</span>
+              <span className="ml-1">Teamwork</span>
             </div>
             <div className="flex items-center">
               <span className="text-xl">💬</span>
-              <span className="ml-2">Communication</span>
+              <span className="ml-1">Communication</span>
             </div>
             <div className="flex items-center">
               <span className="text-xl">🔄</span>
-              <span className="ml-2">Adaptability</span>
+              <span className="ml-1">Adaptability</span>
             </div>
             <div className="flex items-center">
               <span className="text-xl">🧩</span>
-              <span className="ml-2">Problem Solving</span>
+              <span className="ml-1">Problem Solving</span>
             </div>
             <div className="flex items-center">
               <span className="text-xl">🤝</span>
-              <span className="ml-2">Collaboration</span>
+              <span className="ml-1">Collaboration</span>
             </div>
           </div>
         </div>
+
+
       </div>
     </div>
   );
