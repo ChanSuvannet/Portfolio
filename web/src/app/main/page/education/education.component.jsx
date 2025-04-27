@@ -2,7 +2,7 @@ import Cisco from "/src/assets/branch/cisco.png";
 import Codecademey from "/src/assets/branch/codecademey.png";
 import Coursera from "/src/assets/branch/coursera.png";
 import Freecodecamp from "/src/assets/branch/freecodecamp.png";
-import Lab from "/src/assets/branch/lab.png";
+import Lab from "/src/assets/branch/image.png";
 import Mpwt from "/src/assets/branch/mpwt.png";
 import Saylor from "/src/assets/branch/saylor.png";
 import Udermy from "/src/assets/branch/udermy.png";
@@ -10,7 +10,7 @@ import ItcLogo from "/src/assets/icon/itc.png";
 import HightSchool from "/src/assets/svg/hight-school.svg";
 const EducationComponent = () => {
   return (
-    <div className="flex justify-center items-center h-full px-5">
+    <div className="flex justify-center items-center h-full px-5 my-2">
       <div className="w-full h-auto max-w-7xl ">
         <div className="flex justify-center pt-2 max-980:justify-center">
           <h1 className="text-xl font-bold">🎓 Education</h1>
@@ -22,12 +22,11 @@ const EducationComponent = () => {
               <div>
                 <ol className="relative border-s-2 border-gray-400">
                   <li className="mb-10 ms-7">
-                   <span className="absolute flex items-center justify-center w-10 h-10 bg-white rounded-full -start-5 ring-4 ring-white">
-  <a href="https://itc.edu.kh/" target="_blank" rel="noopener noreferrer">
-    <img src={ItcLogo} alt="ITC Logo" />
-  </a>
-</span>
-
+                    <span className="absolute flex items-center justify-center w-10 h-10 bg-white rounded-full -start-5 ring-4 ring-white">
+                      <a href="https://itc.edu.kh/" target="_blank" rel="noopener noreferrer">
+                        <img src={ItcLogo} alt="ITC Logo" />
+                      </a>
+                    </span>
                     <p className="font-medium leading-tight pt-1">
                       Information and Communication Engineering
                     </p>

@@ -4,7 +4,7 @@ import "./style.css";
 import Profile from "/src/assets/image/pic.jpg";
 import Discord from "/src/assets/svg/discord.svg";
 import GitHub from "/src/assets/svg/github.svg";
-import GitLab from "/src/assets/svg/gitlab.svg";
+import LinkIn from "/src/assets/svg/icons8-linkedin.svg";
 import Mial from "/src/assets/svg/mail.svg";
 import Mouse from "/src/assets/svg/mouse.svg";
 const HomeComponent = () => {
@@ -36,16 +36,7 @@ const HomeComponent = () => {
                   <div>
                     <ul className="flex space-x-4">
                       <li>
-                        <a href="#faq">
-                          <img
-                            src={GitLab}
-                            className="w-7 h-7 hover:scale-90 transition-transform duration-300"
-                            alt=""
-                          />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#faq">
+                        <a href="https://github.com/ChanSuvannet/" target="_blank">
                           <img
                             src={GitHub}
                             className="w-7 h-7 hover:scale-90 transition-transform duration-300"
@@ -54,7 +45,16 @@ const HomeComponent = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="#faq">
+                        <a href="https://www.linkedin.com/in/chan-suvannet-63865224a/" target="_blank">
+                          <img
+                            src={LinkIn}
+                            className="w-9 -mt-[3px] h-9 hover:scale-90 transition-transform duration-300"
+                            alt=""
+                          />
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://discordapp.com/users/suvannet" target="_blank"> 
                           <img
                             src={Discord}
                             className="w-7 h-7 hover:scale-90 transition-transform duration-300"
@@ -63,7 +63,7 @@ const HomeComponent = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="#faq">
+                        <a href="mailto:suvannetchan@gmail.com" target="_blank">
                           <img
                             src={Mial}
                             className="w-7 h-7 hover:scale-90 transition-transform duration-300"
@@ -76,9 +76,11 @@ const HomeComponent = () => {
                 </div>
                 <div className="flex justify-center items-center pt-5">
                   <Cover>
-                    <button className="w-[120px]  hover:text-white">
-                      Hire Me
-                    </button>
+                    <a href="https://t.me/chan_suvannet" target="_blank">
+                      <button className="w-[120px]  hover:text-white">
+                        Hire Me
+                      </button>
+                    </a>
                   </Cover>
                 </div>
               </div>

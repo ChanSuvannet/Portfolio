@@ -159,7 +159,7 @@ const AboutMeComponent = () => {
                   />
                 </div>
                 <div className="w-full">
-                  <h1 className="md:text-2xl sm:text-md text-base">5</h1>
+                  <h1 className="md:text-2xl sm:text-md text-base">10</h1>
                   <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0 w-full">
                     Project Completed
                   </p>
@@ -174,7 +174,7 @@ const AboutMeComponent = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="md:text-2xl sm:text-md text-base">2</h1>
+                  <h1 className="md:text-2xl sm:text-md text-base">3</h1>
                   <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
                     Project Ongoing
                   </p>
@@ -190,7 +190,7 @@ const AboutMeComponent = () => {
                 </div>
                 <div>
                   <h1 className="md:text-2xl sm:text-md text-base">
-                    85
+                    1460
                   </h1>
                   <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
                     Cup of Coffee
