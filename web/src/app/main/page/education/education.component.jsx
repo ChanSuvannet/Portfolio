@@ -6,13 +6,14 @@ import Lab from "/src/assets/branch/lab.png";
 import Mpwt from "/src/assets/branch/mpwt.png";
 import Saylor from "/src/assets/branch/saylor.png";
 import Udermy from "/src/assets/branch/udermy.png";
+import ItcLogo from "/src/assets/icon/itc.png";
 import HightSchool from "/src/assets/svg/hight-school.svg";
 const EducationComponent = () => {
   return (
     <div className="flex justify-center items-center h-full px-5">
       <div className="w-full h-auto max-w-7xl ">
-        <div className="flex justify-start pt-2 max-980:justify-center">
-          <h1 className="text-2xl font-bold max-600:text-2xl">🎓 Education</h1>
+        <div className="flex justify-center pt-2 max-980:justify-center">
+          <h1 className="text-xl font-bold">🎓 Education</h1>
         </div>
         <div className="flex justify-center gap-5 pt-6 i max-980:flex-col max-980:w-full max-600:flex-col">
           {/* school learn */}
@@ -21,8 +22,10 @@ const EducationComponent = () => {
               <div>
                 <ol className="relative border-s-2 border-gray-400">
                   <li className="mb-10 ms-7">
-                    <span className="absolute flex items-center justify-center w-10 h-10 bg-white  rounded-full -start-5 ring-4 ring-white ">
-                      <img src={HightSchool} alt="" />
+                    <span className="absolute flex items-center justify-center w-10 h-10 bg-white rounded-full -start-5 ring-4 ring-white">
+                      <a href="https://itc.edu.kh/" target="_blank" rel="noopener noreferrer">
+                        <img src={ItcLogo} alt="ITC Logo" />
+                      </a>
                     </span>
                     <p className="font-medium leading-tight pt-1">
                       Information and Communication Engineering
@@ -90,7 +93,7 @@ const EducationComponent = () => {
                 <img src={Udermy} alt="Udemy" className="w-28 h-20 object-contain" />
                 <img src={Coursera} alt="Coursera" className="w-28 h-20 object-contain" />
                 <img src={Codecademey} alt="Codecademy" className="w-28 h-20 object-contain" />
-                <img src={Freecodecamp} alt="FreeCodeCamp" className="w-28 h-22 scale-105 object-contain" />
+                <img src={Freecodecamp} alt="FreeCodeCamp" className="w-28 h-22 pt-1 scale-105 object-contain" />
                 <img src={Saylor} alt="Saylor" className="w-28 h-16 object-contain" />
                 <img src={Lab} alt="Lab" className="w-28 h-14 mt-1 object-contain" />
                 <img src={Cisco} alt="Cisco" className="w-28 h-[40px] mt-4 object-contain" />

@@ -56,18 +56,18 @@ const VolunteerWorkComponent = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col">
       {/* Main Content */}
-      <div className="flex justify-center items-start flex-grow mt-8 md:px-4 sm:px-4 px-0">
+      <div className="flex justify-center items-start flex-grow mt-10 md:px-4 sm:px-4 px-0">
         <div className="w-full max-w-7xl">
-          <div className="text-center mb-12">
-            <div className="flex justify-start items-center gap-2 px-5 md:px-0 sm:px-0">
+          <div className="text-center">
+            <div className="flex justify-center items-center gap-2 px-5 md:px-0 sm:px-0">
               <img
                 className="w-6 h-6"
                 src="https://cdn-icons-png.flaticon.com/512/5944/5944552.png"
                 alt="Volunteer Icon"
               />
-              <h1 className="text-2xl font-bold max-600:text-2xl">
+              <h1 className="text-xl font-bold max-600:text-2xl">
                 Volunteer Work
               </h1>
 
