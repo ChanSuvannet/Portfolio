@@ -79,6 +79,21 @@ const SkillComponent = () => {
             >
               <img className="rounded-sm" src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white" />
             </motion.a>
+            <motion.a whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <img src="https://img.shields.io/badge/Vue.js-4FC08D?style=for-the-badge&logo=vue.js&logoColor=white" />
+            </motion.a>
+            <motion.a whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <img className="rounded-sm" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+            </motion.a>
+            <motion.a whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <img className="rounded-sm" src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" />
+            </motion.a>
+            <motion.a whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <img className="rounded-sm" src="https://img.shields.io/badge/Nuxt.js-00DC82?style=for-the-badge&logo=nuxt.js&logoColor=white" />
+            </motion.a>
+            <motion.a whileHover={{ scale: 1.1 }} transition={{ type: 'spring', stiffness: 300 }}>
+              <img className="rounded-sm" src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" />
+            </motion.a>
           </div>
         </div>
 
