@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { default as Certificate1, default as Certificate2, default as Certificate3 } from "/src/assets/certificate/image.png";
+
 const data = [
   {
     title: "Youth Development in Digital Society: Rising Star in the North",
@@ -27,6 +28,7 @@ const data = [
 const VolunteerWorkComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCertificate, setSelectedCertificate] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const openModal = (certificate) => {
     setSelectedCertificate(certificate);
@@ -38,45 +40,79 @@ const VolunteerWorkComponent = () => {
     setSelectedCertificate(null);
   };
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % data.length);
+    }, 5000); // 5,000 ms = 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, []);
+
+  // Jump to specific slide
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Main Content */}
-      <div className="flex justify-center items-start flex-grow mt-8">
-        <div className="w-full max-w-7xl ">
+      <div className="flex justify-center items-start flex-grow mt-8 md:px-4 sm:px-4 px-0">
+        <div className="w-full max-w-7xl">
           <div className="text-center mb-12">
-            <div className='flex justify-start items-center gap-2'>
-              <img className='w-6 h-6' src="https://cdn-icons-png.flaticon.com/512/5944/5944552.png" alt="" />
+            <div className="flex justify-start items-center gap-2 px-5 md:px-0 sm:px-0">
+              <img
+                className="w-6 h-6"
+                src="https://cdn-icons-png.flaticon.com/512/5944/5944552.png"
+                alt="Volunteer Icon"
+              />
               <h1 className="text-2xl font-bold max-600:text-2xl">
                 Volunteer Work
               </h1>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-0 sm:px-0">
-            {data.map((item, index) => (
-              <div
-                key={index}
-                className="flex flex-col md:flex-row items-start bg-white rounded-2xl p-6 transform hover:scale-[1.02] transition-all duration-300 max-w-4xl mx-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
-              >
-                <div className="">
+          <div className="relative w-full max-w-7xl mx-auto overflow-hidden mb-4 px-5">
+            <div
+              className="flex transition-transform duration-500"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {data.map((item, index) => (
+                <div
+                  key={index}
+                  className="min-w-full flex flex-col md:flex-row items-start bg-white rounded-2xl p-6 transform hover:scale-[1.02] transition-all duration-300 max-w-4xl mx-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
+                >
                   <img
                     src={item.certificate}
                     alt={`${item.title} Certificate`}
-                    className="w-full h-[100px] object-cover rounded-lg border-4 border-indigo-100 shadow-md cursor-pointer"
+                    className="w-[250px] sm:w-[370px] sm:h-[200px] md:w-[370px] md:h-[200px] flex items-center justify-center rounded-lg border-4 border-indigo-100 cursor-pointer"
                     onClick={() => openModal(item.certificate)}
                   />
+
+                  <div className="w-full md:pl-5 sm:pl-5 md:mt-0 sm:mt-0 mt-1">
+                    <h3 className="text-lg font-bold text-gray-800 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-500 italic text-sm mb-3">
+                      {item.role}
+                    </p>
+                    <p className="text-gray-600 leading-relaxed text-[13px]">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="md:w-2/3 md:pl-8">
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 italic text-sm mb-3">
-                    {item.role}
-                  </p>
-                  <p className="text-gray-600 leading-relaxed text-[13px]">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
+              ))}
+            </div>
+          </div>
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-2 mb-4">
+            {data.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-200 ${currentSlide === index
+                  ? 'bg-black scale-125'
+                  : 'bg-gray-300 hover:bg-gray-500'
+                  }`}
+              />
             ))}
           </div>
         </div>
