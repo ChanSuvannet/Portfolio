@@ -1,4 +1,5 @@
 import { BackgroundLines } from "../../../../components/background-lines";
+import { ContainerTextFlip } from "../../../../components/container-text-flip";
 import { Cover } from "../../../../components/cover";
 import "./style.css";
 import Profile from "/src/assets/image/pic.jpg";
@@ -27,9 +28,9 @@ const HomeComponent = () => {
                     <h1 className="text-[34px] max-600:text-[28px] font-primary">
                       Chan Suvannet
                     </h1>
-                    <p className="pt-2 text-lg max-600:text-[15px]">
-                      Web Development, Mobile Apps, and DevOps{" "}
-                    </p>
+                    <ContainerTextFlip
+                      words={["Web Development", "Mobile Apps", "DevOps"]}
+                    />
                   </div>
                 </div>
                 <div className="flex justify-center items-center pt-5">
