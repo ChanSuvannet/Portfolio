@@ -97,7 +97,7 @@ const Navigation = () => {
                 onClick={() => setOpen(!open)}
                 id="navbarToggler"
                 className={cn(
-                  "absolute flex justify-end right-4 top-1/2 -translate-y-1/2 mt-[6px] rounded-lg lg:hidden",
+                  "absolute flex justify-end right-4 top-1/2 -translate-y-1/2 mt-[8px] rounded-lg lg:hidden",
                   open && "navbarTogglerActive"
                 )}
                 aria-label={open ? "Close menu" : "Open menu"}
