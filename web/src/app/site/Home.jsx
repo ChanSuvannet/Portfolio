@@ -8,7 +8,7 @@ import Mial from "/src/assets/svg/mail.svg";
 import Mouse from "/src/assets/svg/mouse.svg";
 const HomeComponent = () => {
   return (
-    <div className="flex justify-center items-center h-full px-9 my-bg z-1 relative">
+    <div className="flex justify-center items-center h-full px-9 my-bg relative">
       <div className="w-full h-screen  flex justify-center items-center">
         <div className="flex flex-col justify-around h-full">
           <div>

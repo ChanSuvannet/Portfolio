@@ -64,9 +64,9 @@ const VolunteerWorkComponent = () => {
   };
 
   return (
-    <div className="flex flex-col z-0">
+    <div className="flex flex-col">
       {/* Main Content */}
-      <div className="flex justify-center items-start flex-grow mt-10 md:px-4 sm:px-4 px-0 z-0">
+      <div className="flex justify-center items-start flex-grow mt-10 md:px-4 sm:px-4 px-0">
         <div className="w-full max-w-7xl">
           <div className="text-center mb-5">
             <div className="flex justify-center items-center gap-2 px-5 md:px-0 sm:px-0">
@@ -134,11 +134,11 @@ const VolunteerWorkComponent = () => {
 
       {/* Modal for Certificate View */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-10">
           <div className="relative w-full h-full flex justify-center items-center">
             <button
               onClick={closeModal}
-              className="absolute top-1 -right-10  text-4xl font-bold z-10"
+              className="absolute top-1 right-5  text-4xl font-bold text-neutral-900"
             >
               ×
             </button>

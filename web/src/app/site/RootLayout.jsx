@@ -109,7 +109,7 @@ const RootLayout = () => {
         ))}
         {showFloatingDock && (
           <Suspense fallback={null}>
-            <div className="fixed bottom-4 right-4 transition-opacity duration-300 ease-in-out z-50">
+            <div className="fixed bottom-4 right-4 transition-opacity duration-300 ease-in-out ">
               <FloatingDockDemo />
             </div>
           </Suspense>

@@ -58,7 +58,7 @@ const FloatingDockDemo = () => {
     ];
 
     return (
-        <div className="flex items-center justify-center  w-full relative z-50">
+        <div className="flex items-center justify-center  w-full relative">
             <FloatingDock
                 items={links}
                 mobileClassName="fixed bottom-4 left-1/2 -translate-x-1/2"

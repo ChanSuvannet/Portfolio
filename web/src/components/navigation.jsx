@@ -1,7 +1,7 @@
 import { IconBooks, IconBriefcase, IconCertificate, IconFlame, IconMenu2, IconMichelinStarGreen, IconX } from "@tabler/icons-react";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useState } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../utils/cn.ts";
 import HeaderImageHover from "/src/assets/logo/video-unscreen.gif";
 
 // Menu data structure
@@ -71,7 +71,7 @@ const Navigation = () => {
     <header>
       <div className="container mx-auto">
         <div className="relative flex items-center justify-between">
-          <div className="w-48 sm:w-60 max-w-full px-4 z-[100]">
+          <div className="w-48 sm:w-60 max-w-full px-4 ">
             <a
               href="/"
               onMouseEnter={handleMouseEnter}
@@ -91,7 +91,7 @@ const Navigation = () => {
               )}
             </a>
           </div>
-          <div className="flex w-full items-center justify-between px-4 z-[100]">
+          <div className="flex w-full items-center justify-between px-4">
             <div>
               <button
                 onClick={() => setOpen(!open)}
@@ -216,7 +216,7 @@ const Navigation = () => {
                 </ul>
               </nav>
             </div>
-            <div className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 z-[100] mt-[14px] sm:mt-[14px] md:mt-0">
+            <div className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 mt-[14px] sm:mt-[14px] md:mt-0">
               <a
                 href="https://t.me/chan_suvannet"
                 target="_blank"
