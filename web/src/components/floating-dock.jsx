@@ -83,7 +83,7 @@ const IconContainer = ({ mouseX, title, icon, href }) => {
               initial={{ opacity: 0, y: 10, x: "-50%" }}
               animate={{ opacity: 1, y: 0, x: "-50%" }}
               exit={{ opacity: 0, y: 2, x: "-50%" }}
-              className="absolute -top-8 left-1/2 w-fit rounded-md border px-2 py-0.5 text-xs whitespace-pre  bg-neutral-800/50 text-gray-100"
+              className="absolute -top-8 left-1/2 w-fit rounded-md border px-2 py-0.5 text-xs whitespace-pre  bg-neutral-800/50 text-white "
             >
               {title}
             </motion.div>
