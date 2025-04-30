@@ -1,7 +1,6 @@
 import { mdiStar, mdiStarHalfFull } from '@mdi/js';
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
-import "./style.css";
 import Profile from "/src/assets/image/pic.jpg";
 import Coffee from "/src/assets/svg/cafe.svg";
 import Certificate from "/src/assets/svg/certificate.svg";
