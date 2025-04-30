@@ -1,10 +1,9 @@
 import {
     IconBrandGithub,
     IconBrandTelegram,
-    IconExchange,
     IconHome,
     IconNewSection,
-    IconShare,
+    IconShare
 } from "@tabler/icons-react";
 import React from "react";
 import { FloatingDock } from "../components/floating-dock";
@@ -50,11 +49,6 @@ const FloatingDockDemo = () => {
             title: "Telegram",
             icon: <IconBrandTelegram className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
             href: "https://t.me/chan_suvannet",
-        },
-        {
-            title: "Projects",
-            icon: <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
-            href: "/#projects",
         },
         {
             title: "GitHub",
