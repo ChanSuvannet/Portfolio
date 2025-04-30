@@ -32,27 +32,27 @@ const FloatingDockDemo = () => {
     const links = [
         {
             title: "Home",
-            icon: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+            icon: <IconHome className="h-full w-full text-neutral-500" />,
             href: "#",
         },
         {
             title: "Share",
-            icon: <IconShare className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+            icon: <IconShare className="h-full w-full text-neutral-500" />,
             action: handleShare,
         },
         {
             title: "CV",
-            icon: <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+            icon: <IconNewSection className="h-full w-full text-neutral-500" />,
             action: handleDownloadCV,
         },
         {
             title: "Telegram",
-            icon: <IconBrandTelegram className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+            icon: <IconBrandTelegram className="h-full w-full text-neutral-500" />,
             href: "https://t.me/chan_suvannet",
         },
         {
             title: "GitHub",
-            icon: <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+            icon: <IconBrandGithub className="h-full w-full text-neutral-500" />,
             href: "https://github.com/ChanSuvannet/",
         },
     ];
