@@ -76,18 +76,18 @@ const Navigation = () => {
               href="/"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="block w-10 h-10 mt-5 sm:mt-0 md:mt-0"
+              className="block w-10 h-10"
               aria-label="Home"
             >
               {isHovered ? (
                 <img
                   src={HeaderImageHover}
                   alt="Hover Icon"
-                  className="w-9 h-9"
+                  className="w-9 h-9 mt-[14px] sm:mt-[14px] md:mt-0"
                   onError={(e) => (e.target.style.display = "none")} // Hide broken image
                 />
               ) : (
-                <IconFlame className="w-9 h-9 text-gray-500" aria-hidden="true" />
+                <IconFlame className="w-9 h-9 text-gray-500 mt-[14px] sm:mt-[14px] md:mt-0" aria-hidden="true" />
               )}
             </a>
           </div>
@@ -97,7 +97,7 @@ const Navigation = () => {
                 onClick={() => setOpen(!open)}
                 id="navbarToggler"
                 className={cn(
-                  "absolute flex justify-end right-4 top-1/2 -translate-y-1/2 mt-[14px] rounded-lg lg:hidden",
+                  "absolute flex justify-end right-4 top-1/2 -translate-y-1/2 mt-[6px] rounded-lg lg:hidden",
                   open && "navbarTogglerActive"
                 )}
                 aria-label={open ? "Close menu" : "Open menu"}
@@ -216,7 +216,7 @@ const Navigation = () => {
                 </ul>
               </nav>
             </div>
-            <div className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 z-[100]">
+            <div className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 z-[100] mt-[14px] sm:mt-[14px] md:mt-0">
               <a
                 href="https://t.me/chan_suvannet"
                 target="_blank"
