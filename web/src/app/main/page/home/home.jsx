@@ -27,8 +27,8 @@ const HomeComponent = () => {
                     <h1 className="text-[34px] max-600:text-[28px] font-primary">
                       Chan Suvannet
                     </h1>
-                    <p className="pt-2 text-xl max-600:text-[18px]">
-                      I&apos;m Software Engineering{" "}
+                    <p className="pt-2 text-lg max-600:text-[15px]">
+                      Web Development, Mobile Apps, and DevOps{" "}
                     </p>
                   </div>
                 </div>
@@ -54,7 +54,7 @@ const HomeComponent = () => {
                         </a>
                       </li>
                       <li>
-                        <a href="https://discordapp.com/users/suvannet" target="_blank"> 
+                        <a href="https://discordapp.com/users/suvannet" target="_blank">
                           <img
                             src={Discord}
                             className="w-7 h-7 hover:scale-90 transition-transform duration-300"
