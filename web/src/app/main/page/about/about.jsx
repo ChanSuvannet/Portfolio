@@ -93,7 +93,7 @@ const AboutMeComponent = () => {
               <div className="flex max-600:flex-col gap-2 max-600:gap-0 ">
                 <div className="w-[50%] max-600:w-full">
                   <p className="md:text-lg sm:text-md text-base">
-                    I'm Suvannet, currently pursuing a degree in Information and Communication Engineering at the Institute of Technology of Cambodia. I'm known for my positive mindset, strong motivation, and excellent communication skills. I have a deep respect for talented individuals and a relentless drive for self-improvement. Passionate about lifelong learning, I actively seek opportunities to grow, sharpen my skills, and broaden my knowledge.
+                    I'm Suvannet, Currently pursuing a degree in Information and Communication Engineering at the Institute of Technology of Cambodia. I'm known for my positive mindset, strong motivation, and excellent communication skills. I have a deep respect for talented individuals and a relentless drive for self-improvement. Passionate about lifelong learning, I actively seek opportunities to grow, sharpen my skills, and broaden my knowledge.
                   </p>
                 </div>
                 <div className="max-980:hidden mb-5 mt-5">
