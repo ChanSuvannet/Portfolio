@@ -69,9 +69,9 @@ const Navigation = () => {
 
   return (
     <header>
-      <div className="container mx-auto">
+      <div className="container mx-auto z-50">
         <div className="relative flex items-center justify-between">
-          <div className="w-48 sm:w-60 max-w-full px-4 ">
+          <div className="w-48 sm:w-60 max-w-full px-4 z-50">
             <a
               href="/"
               onMouseEnter={handleMouseEnter}
@@ -91,7 +91,7 @@ const Navigation = () => {
               )}
             </a>
           </div>
-          <div className="flex w-full items-center justify-between px-4">
+          <div className="flex w-full items-center justify-between px-4 z-50">
             <div>
               <button
                 onClick={() => setOpen(!open)}
@@ -133,7 +133,7 @@ const Navigation = () => {
               <nav
                 id="navbarCollapse"
                 className={cn(
-                  "absolute right-4 top-full w-full max-w-[300px] rounded-lg bg-white px-6 py-5 shadow lg:static lg:block lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent",
+                  "absolute right-4 top-full w-full max-w-[300px] rounded-lg bg-white px-6 py-5 shadow lg:static lg:block z-50 lg:w-full lg:max-w-full lg:shadow-none dark:bg-dark-2 lg:dark:bg-transparent",
                   !open && "hidden"
                 )}
                 aria-label="Main navigation"
@@ -216,12 +216,12 @@ const Navigation = () => {
                 </ul>
               </nav>
             </div>
-            <div className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 mt-[14px] sm:mt-[14px] md:mt-0">
+            <div className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 mt-[14px] sm:mt-[14px] md:mt-0 z-50">
               <a
                 href="https://t.me/chan_suvannet"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-gray-100 px-4 sm:px-5 py-2 sm:py-2.5 text-base font-medium hover:bg-primary/90 hover:text-white transition-colors"
+                className="rounded-lg bg-gray-100 px-4 sm:px-5 py-2 sm:py-2.5 text-base font-medium hover:bg-primary/90 hover:text-red-500 transition-colors"
               >
                 Quick Contact
               </a>

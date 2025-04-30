@@ -85,7 +85,7 @@ const RootLayout = () => {
   return (
     <ErrorBoundary>
 
-      <main className="relative scroll-mt-16">
+      <main className="scroll-mt-16">
         {sections.map(({ id, Component, label }) => (
           <section
             key={id}
