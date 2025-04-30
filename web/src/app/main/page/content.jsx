@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Message from "./../../../helper/Message";
+import FloatingDockDemo from "./../../../helper/FloatingDock";
 import AboutMeComponent from "./about/about";
 import EducationComponent from "./education/education.component";
 import ExperienceComponent from "./experience/experience.component";
@@ -41,7 +41,7 @@ const ContentComponent = () => {
       </div>
       <div id="about">
         <AboutMeComponent />
-        {showMessage && <Message />}
+        {showMessage && <FloatingDockDemo />}
       </div>
       <div id="education">
         <EducationComponent />
@@ -54,6 +54,7 @@ const ContentComponent = () => {
       </div>
       <div id="skill">
         <SkillComponent />
+        {/* <FloatingDockDemo /> */}
       </div>
     </div>
   );
