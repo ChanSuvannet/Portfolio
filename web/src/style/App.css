@@ -33,7 +33,24 @@ p {
   /* font-family: 'Montserrat', sans-serif; */
   font-family: "Open Sans", sans-serif;
 }
+.mouse {
+  width: 30px;
+  animation: moveUpDown 2s infinite;
+}
 
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
 /* Headings */
 h1,
 h2,
