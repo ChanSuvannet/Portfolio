@@ -74,9 +74,9 @@ const Navigation = () => {
               className="block w-[100px] h-[100px]"
               aria-label="Home"
             >
-              <iframe src="https://lottie.host/embed/e1427eec-dba7-4816-81a5-3ae97538b771/vexOS296iQ.lottie"
+              <iframe src="https://lottie.host/embed/6b6f5ebd-0c2d-49fb-9eae-e9821e2611a5/qYc35FArpK.lottie"
                 alt="Logo"
-                className="max-w-[50px] -mt-[45px] cursor-pointer sm:-mt-[50px] md:-mt-[50px]"
+                className="max-w-[100px] -mt-[25px] cursor-help sm:-mt-[40px] md:-mt-[30px]"
               ></iframe>
             </a>
           </div>

@@ -16,7 +16,7 @@ const HomeComponent = () => {
             <div>
               <div>
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-44 h-44 rounded-full flex justify-center items-center border-[10px] border-red-300 hover:bg-red-400 cursor-pointer">
+                  <div className="w-44 h-44 rounded-full flex justify-center items-center border-[10px] border-red-200 hover:bg-red-400 cursor-pointer">
                     <img
                       src={Profile}
                       alt={Profile}
