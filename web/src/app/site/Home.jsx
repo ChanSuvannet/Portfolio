@@ -1,7 +1,7 @@
 import { BackgroundLines } from "../../components/background-lines";
 import { ContainerTextFlip } from "../../components/container-text-flip";
 import { Cover } from "../../components/cover";
-import Profile from "/src/assets/image/pic.jpg";
+import Profile from "/src/assets/image/image.png";
 import Discord from "/src/assets/svg/discord.svg";
 import GitHub from "/src/assets/svg/github.svg";
 import LinkIn from "/src/assets/svg/icons8-linkedin.svg";
@@ -10,20 +10,25 @@ import Mouse from "/src/assets/svg/mouse.svg";
 const HomeComponent = () => {
   return (
     <BackgroundLines>
-      <div className="flex justify-center items-center h-full px-9 my-bg relative">
-        <div className="w-full h-screen  flex justify-center items-center">
+      <div className="relative flex items-center justify-center h-full px-9 my-bg">
+        <div className="flex items-center justify-center w-full h-screen">
           <div className="flex flex-col justify-around h-full">
             <div>
               <div>
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-44 h-44 rounded-full flex justify-center items-center border-[10px] border-red-200 hover:bg-red-400 cursor-pointer">
-                    <img
-                      src={Profile}
-                      alt={Profile}
-                      className="w-40 h-40 rounded-full hover:scale-105 border-[2px]"
-                    />
+                  {/* Gradient border wrapper */}
+                  <div className="w-44 h-44 rounded-full p-[5px] bg-gradient-to-r from-pink-500 to-purple-600 cursor-pointer">
+                    <div className="flex items-center justify-center w-full h-full bg-white rounded-full">
+                      <img
+                        src={Profile}
+                        alt="Profile"
+                        className="object-cover w-40 h-40 transition-transform duration-300 rounded-full sca hover:scale-105"
+                      />
+                    </div>
                   </div>
-                  <div className="flex flex-col justify-center items-center pt-5">
+
+                  {/* Name and title */}
+                  <div className="flex flex-col items-center justify-center pt-5">
                     <h1 className="text-[34px] max-600:text-[28px] font-primary">
                       Chan Suvannet
                     </h1>
@@ -32,14 +37,15 @@ const HomeComponent = () => {
                     />
                   </div>
                 </div>
-                <div className="flex justify-center items-center pt-5">
+
+                <div className="flex items-center justify-center pt-5">
                   <div>
                     <ul className="flex space-x-4">
                       <li>
                         <a href="https://github.com/ChanSuvannet/" target="_blank">
                           <img
                             src={GitHub}
-                            className="w-7 h-7 hover:scale-90 transition-transform duration-300"
+                            className="transition-transform duration-300 w-7 h-7 hover:scale-90"
                             alt=""
                           />
                         </a>
@@ -57,7 +63,7 @@ const HomeComponent = () => {
                         <a href="https://discordapp.com/users/suvannet" target="_blank">
                           <img
                             src={Discord}
-                            className="w-7 h-7 hover:scale-90 transition-transform duration-300"
+                            className="transition-transform duration-300 w-7 h-7 hover:scale-90"
                             alt="Instagram"
                           />
                         </a>
@@ -66,7 +72,7 @@ const HomeComponent = () => {
                         <a href="mailto:suvannetchan@gmail.com" target="_blank">
                           <img
                             src={Mial}
-                            className="w-7 h-7 hover:scale-90 transition-transform duration-300"
+                            className="transition-transform duration-300 w-7 h-7 hover:scale-90"
                             alt=""
                           />
                         </a>
@@ -74,7 +80,7 @@ const HomeComponent = () => {
                     </ul>
                   </div>
                 </div>
-                <div className="flex justify-center items-center pt-5">
+                <div className="flex items-center justify-center pt-5">
                   <Cover>
                     <a href="https://t.me/chan_suvannet" target="_blank">
                       <button className="w-[120px]  hover:text-white">
@@ -85,9 +91,9 @@ const HomeComponent = () => {
                 </div>
               </div>
             </div>
-            <div className="flex justify-center items-center pt-5 flex-col">
+            <div className="flex flex-col items-center justify-center pt-5">
               <h1 className="text-xl text-gray-600">Scroll Down</h1>
-              <img className="mouse pt-10 cursor-pointer" src={Mouse} />
+              <img className="pt-10 cursor-pointer mouse" src={Mouse} />
             </div>
           </div>
         </div>

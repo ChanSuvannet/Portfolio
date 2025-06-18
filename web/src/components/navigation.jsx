@@ -66,21 +66,9 @@ const Navigation = () => {
 
   return (
     <header>
-      <div className="container mx-auto z-50">
+      <div className="container z-50 mx-auto">
         <div className="relative flex items-center justify-between">
-          <div className="w-48 sm:w-60 max-w-full px-4 z-50">
-            <a
-              href="/"
-              className="block w-[100px] h-[100px]"
-              aria-label="Home"
-            >
-              <iframe src="https://lottie.host/embed/6b6f5ebd-0c2d-49fb-9eae-e9821e2611a5/qYc35FArpK.lottie"
-                alt="Logo"
-                className="max-w-[100px] -mt-[25px] cursor-help sm:-mt-[40px] md:-mt-[30px]"
-              ></iframe>
-            </a>
-          </div>
-          <div className="flex w-full items-center justify-between px-4 z-50">
+          <div className="z-50 flex items-center justify-between w-full px-4">
             <div>
               <button
                 onClick={() => setOpen(!open)}
@@ -101,9 +89,9 @@ const Navigation = () => {
                       animate={{ opacity: 1, rotate: 0 }}
                       exit={{ opacity: 0, rotate: 90 }}
                       transition={{ duration: 0.25 }}
-                      className="h-6 w-6 text-neutral-500"
+                      className="w-6 h-6 text-neutral-500"
                     >
-                      <IconX className="h-full w-full" />
+                      <IconX className="w-full h-full" />
                     </motion.div>
                   ) : (
                     <motion.div
@@ -112,9 +100,9 @@ const Navigation = () => {
                       animate={{ opacity: 1, rotate: 0 }}
                       exit={{ opacity: 0, rotate: -90 }}
                       transition={{ duration: 0.25 }}
-                      className="h-6 w-6 text-neutral-500"
+                      className="w-6 h-6 text-neutral-500"
                     >
-                      <IconMenu2 className="h-full w-full" />
+                      <IconMenu2 className="w-full h-full" />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -166,17 +154,17 @@ const Navigation = () => {
                               showMegaMenu ? "block" : "hidden"
                             )}
                           >
-                            <div className="rounded-t-xl bg-white p-4 sm:p-6 lg:p-8 dark:bg-dark-2">
+                            <div className="p-4 bg-white rounded-t-xl sm:p-6 lg:p-8 dark:bg-dark-2">
                               <div className="grid gap-y-2 sm:grid-cols-2 sm:gap-4 lg:gap-x-5">
                                 {item.subData.map((subItem, subIndex) => (
                                   <a
                                     key={subIndex}
                                     href={subItem.href}
-                                    className="group flex flex-col gap-4 rounded-lg p-4 duration-300 hover:bg-gray-100/90 lg:flex-row"
+                                    className="flex flex-col gap-4 p-4 duration-300 rounded-lg group hover:bg-gray-100/90 lg:flex-row"
                                   >
                                     <div>{subItem.icon}</div>
                                     <div>
-                                      <h3 className="mb-1 text-base font-semibold text-dark duration-200 group-hover:text-primary">
+                                      <h3 className="mb-1 text-base font-semibold duration-200 text-dark group-hover:text-primary">
                                         {subItem.title}
                                       </h3>
                                       <p className="text-sm text-body-color">{subItem.description}</p>
@@ -205,16 +193,25 @@ const Navigation = () => {
                 </ul>
               </nav>
             </div>
-            <div className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 mt-[14px] sm:mt-[5px] md:mt-0 z-50">
-              <a
+            <motion.div
+              /* Slide‑in & fade‑in when the component appears */
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55, ease: 'easeOut' }}
+              className="hidden justify-end gap-3 pr-4 sm:flex sm:pr-16 lg:pr-0 mt-[14px] sm:mt-[5px] md:mt-0 z-50"
+            >
+              <motion.a
                 href="https://t.me/chan_suvannet"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-lg bg-gray-100 px-4 sm:px-5 py-2 sm:py-2.5 text-base font-medium hover:bg-primary/90 hover:text-red-500 transition-colors"
+                /* Slight scale on hover / press for tactile feel */
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.94 }}
               >
                 Quick Contact
-              </a>
-            </div>
+              </motion.a>
+            </motion.div>
           </div>
         </div>
       </div>

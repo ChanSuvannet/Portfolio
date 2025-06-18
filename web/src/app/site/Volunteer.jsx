@@ -1,7 +1,7 @@
 import { mdiCircle } from '@mdi/js';
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { default as Certificate1, default as Certificate2, default as Certificate3, default as Certificate4 } from "/src/assets/certificate/itc.png";
 const data = [
   {
@@ -66,10 +66,10 @@ const VolunteerWorkComponent = () => {
   return (
     <div className="flex flex-col">
       {/* Main Content */}
-      <div className="flex justify-center items-start flex-grow mt-10 md:px-4 sm:px-4 px-0">
+      <div className="flex items-start justify-center flex-grow px-0 mt-10 md:px-4 sm:px-4">
         <div className="w-full max-w-7xl">
-          <div className="text-center mb-5">
-            <div className="flex justify-center items-center gap-2 px-5 md:px-0 sm:px-0">
+          <div className="mb-5 text-center">
+            <div className="flex items-center justify-center gap-2 px-5 md:px-0 sm:px-0">
               <img
                 className="w-6 h-6"
                 src="https://cdn-icons-png.flaticon.com/512/5944/5944552.png"
@@ -81,7 +81,7 @@ const VolunteerWorkComponent = () => {
 
             </div>
           </div>
-          <div className="relative w-full max-w-7xl mx-auto overflow-hidden mb-4 px-5">
+          <div className="relative w-full px-5 mx-auto mb-4 overflow-hidden max-w-7xl">
             <div
               className="flex transition-transform duration-500"
               style={{ transform: `translateX(-${currentSlide * 100}%)` }}
@@ -92,13 +92,13 @@ const VolunteerWorkComponent = () => {
                   className="min-w-full flex flex-col md:flex-row items-start bg-white rounded-2xl p-6 transform hover:scale-[1.02] transition-all duration-300 max-w-4xl mx-auto shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]"
                 >
 
-                  <div className="w-full md:pl-5 sm:pl-5 md:mt-0 sm:mt-0 mt-1">
+                  <div className="w-full mt-1 md:pl-5 sm:pl-5 md:mt-0 sm:mt-0">
                     <div className="flex ">
-                      <h3 className="text-lg font-bold text-gray-800 mb-2">
-                        {item.title} | <span onClick={() => openModal(item.certificate)} className='text-blue-400 cursor-pointer'> Certificate</span>
+                      <h3 className="mb-2 text-lg font-bold text-gray-800">
+                        {item.title}
                       </h3>
                     </div>
-                    <p className="text-gray-500 italic text-sm mb-3">
+                    <p className="mb-3 text-sm italic text-gray-500">
                       {item.role}
                     </p>
                     <p className="text-gray-600 leading-relaxed text-[13px]">
@@ -134,11 +134,11 @@ const VolunteerWorkComponent = () => {
 
       {/* Modal for Certificate View */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-10">
-          <div className="relative w-full h-full flex justify-center items-center">
+        <div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="relative flex items-center justify-center w-full h-full">
             <button
               onClick={closeModal}
-              className="absolute top-1 right-5  text-4xl font-bold text-neutral-900"
+              className="absolute text-4xl font-bold top-1 right-5 text-neutral-900"
             >
               ×
             </button>
@@ -146,7 +146,7 @@ const VolunteerWorkComponent = () => {
               <img
                 src={selectedCertificate}
                 alt="Certificate"
-                className="w-full h-full object-contain rounded-lg shadow-2xl"
+                className="object-contain w-full h-full rounded-lg shadow-2xl"
               />
             </div>
           </div>
