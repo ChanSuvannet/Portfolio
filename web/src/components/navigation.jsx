@@ -69,12 +69,12 @@ const Navigation = () => {
       <div className="container z-50 mx-auto">
         <div className="relative flex items-center justify-between">
           <div className="z-50 flex items-center justify-between w-full px-4">
-            <div>
+            <div >
               <button
                 onClick={() => setOpen(!open)}
                 id="navbarToggler"
                 className={cn(
-                  "absolute flex justify-end right-4 top-1/2 -translate-y-1/2 mt-[1px] rounded-lg lg:hidden",
+                  "absolute flex justify-end right-4 top-1/2 -translate-y-1/2 mt-[30px] rounded-lg lg:hidden",
                   open && "navbarTogglerActive"
                 )}
                 aria-label={open ? "Close menu" : "Open menu"}
@@ -150,7 +150,7 @@ const Navigation = () => {
                           <div
                             id="megaMenu"
                             className={cn(
-                              "w-full lg:absolute lg:left-0 lg:top-full lg:w-[600px] xl:w-[850px] lg:rounded-xl lg:shadow-lg",
+                              "w-full  lg:absolute lg:left-0 lg:top-full lg:w-[600px] xl:w-[850px] lg:rounded-xl lg:shadow-lg",
                               showMegaMenu ? "block" : "hidden"
                             )}
                           >
