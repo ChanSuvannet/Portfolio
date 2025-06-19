@@ -6,228 +6,223 @@ import Coffee from "/src/assets/svg/cafe.svg";
 import Certificate from "/src/assets/svg/certificate.svg";
 import Code from "/src/assets/svg/code.svg";
 import Rocket from "/src/assets/svg/rocket.svg";
-const AboutMeComponent = () => {
-  return (
-    <div className="h-full px-5 flex justify-center items-center">
-      <div className="w-full h-auto max-w-7xl flex justify-center ">
-        <div className="w-full">
-          <div className="flex flex-col justify-center items-center gap-5 max-600:gap-4 max-980:flex-col max-980:w-full max-600:flex-col my-5">
-            <div className="max-600:w-full w-[600px]">
-              <div className="flex flex-wrap">
-                <div className="w-full px-4">
-                  <div className="mx-auto  max-w-[510px] text-center">
-                    <div className="w-full flex justify-center rounded-full">
-                      <img className="w-14 h-14" src="https://lh3.googleusercontent.com/a/ACg8ocLwnU6pFHzGJX_V7X1iM4-BrlFso2NwYtH2IFrlFKU73CEuirNg=s317-c-no" alt="" aria-hidden="true" data-noaft="" />
-                    </div>
-                    <div className="flex justify-center items-start mt-5 gap-2">
-                      <span height="20" width="20" >I'm not a great programmer, I'm just a good programmer with great habits. </span>
-                    </div>
-                    <div className="relative inline-flex items-center justify-center w-full">
-                      <hr className="w-64 h-[2px] my-8 bg-gray-400 border-0 rounded " />
-                      <div className="absolute px-4 -translate-x-1/2 left-1/2 flex items-center justify-center bg-white ">
-                        <img className="pt-[1.2px]" title=":copilot:" alt=":copilot:" src="https://github.githubassets.com/images/icons/emoji/copilot.png" height="20" width="20" align="absmiddle" />
-                      </div>
-                    </div>
-                    <p className="text-base text-body-color dark:text-dark-6">
-                      Explore my background and dedicated skills in teamwork,
-                      which bring extensive experience and creativity to every
-                      project.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex justify-center gap-3 my-5">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Icon path={mdiStar} size={1} className='text-red-400' />
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Icon path={mdiStar} size={1} className='text-red-400' />
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Icon path={mdiStar} size={1} className='text-red-400' />
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Icon path={mdiStar} size={1} className='text-red-400' />
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 300 }}
-                >
-                  <Icon path={mdiStarHalfFull} size={1} className='text-red-400' />
-                </motion.div>
-              </div>
-              <div className="flex flex-col justify-center items-center text-center">
-                <img
-                  className="w-10 h-10 rounded-full"
-                  src={Profile}
-                  alt="Profile picture"
-                />
-                <div className="font-medium mt-2">
-                  <h1 className="md:text-lg sm:text-md text-base">Chan Suvannet</h1>
-                  <p className="text-[14px] mt-1 text-gray-600">Languages Spoken</p>
-                  <div className="text-[12px] px] mt-1 text-gray-500 dark:text-gray-500">
-                    Khmer, English, and French.
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-start px-6 py-5 flex-col h-auto w-full max-600:h-auto bg-white  rounded-3xl max-600:w-full  max-980:w-full shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]">
-              <div className="flex max-600:flex-col gap-2 max-600:gap-0 ">
-                <div className="w-[50%] max-600:w-full">
-                  <p className="md:text-lg sm:text-md text-base">
-                    I'm Suvannet, Currently pursuing a degree in Information and Communication Engineering at the Institute of Technology of Cambodia. I'm known for my positive mindset, strong motivation, and excellent communication skills. I have a deep respect for talented individuals and a relentless drive for self-improvement. Passionate about lifelong learning, I actively seek opportunities to grow, sharpen my skills, and broaden my knowledge.
-                  </p>
-                </div>
-                <div className="max-980:hidden mb-5 mt-5">
-                  <hr />
-                </div>
-                <div className="w-[50%] max-600:w-full">
-                  <div>
-                    <div>
-                      <div className=" w-full">
-                        <div className="flex justify-between">
-                          <p className="md:text-lg sm:text-md text-base max-600:text-base">
-                            Development
-                          </p>
-                          <p className="md:text-lg sm:text-md text-base max-600:text-base">80%</p>
-                        </div>
-                        <div className="mb-5 pt-3">
-                          <div className="bg-stroke bg-gray-200 relative h-[4px] w-full rounded-2xl max-600:h-1">
-                            <div className="bg-red-400 absolute top-0 left-0 h-full w-4/5 rounded-2xl"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className=" w-full">
-                        <div className="flex justify-between">
-                          <p className="md:text-lg sm:text-md text-base max-600:text-base">
-                            Problem-Solving
-                          </p>
-                          <p className="md:text-lg sm:text-md text-base max-600:text-base">85%</p>
-                        </div>
-                        <div className="mb-5 pt-3">
-                          <div className="bg-stroke bg-gray-200 relative h-[4px] w-full rounded-2xl max-600:h-1">
-                            <div className="bg-yellow-400 absolute top-0 left-0 h-full w-10/12 rounded-2xl"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className=" w-full">
-                        <div className="flex justify-between">
-                          <p className="md:text-lg sm:text-md text-base max-600:text-base">
-                            Communication
-                          </p>
-                          <p className="md:text-lg sm:text-md text-base max-600:text-base">91%</p>
-                        </div>
-                        <div className="mb-5 pt-3">
-                          <div className="bg-stroke bg-gray-200 relative h-[4px] w-full rounded-2xl max-600:h-1">
-                            <div className="bg-purple-400 absolute top-0 left-0 h-full w-11/12 rounded-2xl"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="flex justify-center my-20 max-600:mt-8 max-600:mb-8">
-            <div className="grid grid-cols-4 gap-32 max-600:grid-cols-2 max-600:gap-10 justify-center">
-              <div className="flex gap-5">
-                <div>
-                  <img
-                    src={Code}
-                    className="w-16 hover:scale-110 transition-transform duration-300 max-600:w-10 cursor-pointer"
-                    alt=""
-                  />
-                </div>
-                <div className="w-full">
-                  <h1 className="md:text-2xl sm:text-md text-base">10</h1>
-                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0 w-full">
-                    Project Completed
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-5">
-                <div>
-                  <img
-                    src={Rocket}
-                    className="w-16 hover:scale-110 transition-transform duration-300 max-600:w-10 cursor-pointer"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <h1 className="md:text-2xl sm:text-md text-base">3</h1>
-                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
-                    Project Ongoing
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-5">
-                <div>
-                  <img
-                    src={Coffee}
-                    className="w-16 hover:scale-110 transition-transform duration-300 max-600:w-10 cursor-pointer"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <h1 className="md:text-2xl sm:text-md text-base">
-                    1460
-                  </h1>
-                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
-                    Cup of Coffee
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-5">
-                <div>
-                  <img
-                    src={Certificate}
-                    className="w-16 hover:scale-110 transition-transform duration-300 max-600:w-10 cursor-pointer"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <h1 className="md:text-2xl sm:text-md text-base">6</h1>
-                  <p className="mt-2 md:text-lg sm:text-md text-base max-600:mt-0">
-                    Certificate
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+// Constants
+const PROFILE_IMAGE_URL = "https://lh3.googleusercontent.com/a/ACg8ocLwnU6pFHzGJX_V7X1iM4-BrlFso2NwYtH2IFrlFKU73CEuirNg=s317-c-no";
+const COPILOT_EMOJI_URL = "https://github.githubassets.com/images/icons/emoji/copilot.png";
 
-          <div className="flex justify-center mb-10 max-600:my-8 max-600:mb-8 max-600:justify-start">
-            <p className="md:text-lg sm:text-md text-base">
-              Let&apos;s start a conversation to explore new technology
-              together.
-              <strong className="text-red-400 md:text-lg sm:text-md text-base max-600:text-[14px] transition-colors duration-300 hover:text-red-200 cursor-pointer">
-                {" "}
-                Click here{" "}
-              </strong>
-              to contact me!{" "}
-            </p>
-          </div>
-        </div>
+const SKILLS_DATA = [
+  { name: "Development", percentage: 80, color: "bg-red-400" },
+  { name: "Problem-Solving", percentage: 85, color: "bg-yellow-400" },
+  { name: "Communication", percentage: 91, color: "bg-purple-400" }
+];
+
+const STATS_DATA = [
+  { icon: Code, value: "10", label: "Project Completed" },
+  { icon: Rocket, value: "3", label: "Project Ongoing" },
+  { icon: Coffee, value: "1460", label: "Cup of Coffee" },
+  { icon: Certificate, value: "6", label: "Certificate" }
+];
+
+const ANIMATION_CONFIG = {
+  whileHover: { scale: 1.1 },
+  whileTap: { scale: 0.9 },
+  transition: { type: 'spring', stiffness: 300 }
+};
+
+// Components
+const StarRating = () => (
+  <div className="flex justify-center gap-3 my-5">
+    {[...Array(4)].map((_, index) => (
+      <motion.div key={index} {...ANIMATION_CONFIG}>
+        <Icon path={mdiStar} size={1} className="text-red-400" />
+      </motion.div>
+    ))}
+    <motion.div {...ANIMATION_CONFIG}>
+      <Icon path={mdiStarHalfFull} size={1} className="text-red-400" />
+    </motion.div>
+  </div>
+);
+
+const ProfileHeader = () => (
+  <div className="max-w-[510px] mx-auto text-center px-4">
+    <div className="w-full flex justify-center">
+      <img
+        className="w-14 h-14 rounded-full"
+        src={PROFILE_IMAGE_URL}
+        alt="Profile avatar"
+        loading="lazy"
+      />
+    </div>
+
+    <div className="flex justify-center items-start mt-5 gap-2">
+      <span className="text-base leading-relaxed">
+        I'm not a great programmer, I'm just a good programmer with great habits.
+      </span>
+    </div>
+
+    <div className="relative inline-flex items-center justify-center w-full">
+      <hr className="w-64 h-[2px] my-8 bg-gray-400 border-0 rounded" />
+      <div className="absolute px-4 -translate-x-1/2 left-1/2 flex items-center justify-center bg-white">
+        <img
+          className="pt-[1.2px]"
+          title="GitHub Copilot"
+          alt="GitHub Copilot"
+          src={COPILOT_EMOJI_URL}
+          height="20"
+          width="20"
+          loading="lazy"
+        />
       </div>
     </div>
+
+    <p className="text-base text-gray-60000 leading-relaxed">
+      Explore my background and dedicated skills in teamwork, which bring
+      extensive experience and creativity to every project.
+    </p>
+  </div>
+);
+
+const ProfileCard = () => (
+  <div className="flex flex-col justify-center items-center text-center">
+    <img
+      className="w-10 h-10 rounded-full object-cover"
+      src={Profile}
+      alt="Chan Suvannet profile picture"
+      loading="lazy"
+    />
+    <div className="font-medium mt-2">
+      <h1 className="text-lg md:text-xl font-semibold">Chan Suvannet</h1>
+      <p className="text-sm mt-1 text-gray-60000">Languages Spoken</p>
+      <div className="text-xs mt-1 text-gray-50000">
+        Khmer, English, and French.
+      </div>
+    </div>
+  </div>
+);
+
+const SkillBar = ({ name, percentage, color }) => (
+  <div className="w-full mb-5">
+    <div className="flex justify-between items-center mb-3">
+      <p className="text-base md:text-lg font-medium">{name}</p>
+      <p className="text-base md:text-lg font-medium">{percentage}%</p>
+    </div>
+    <div className="bg-gray-200 relative h-1 md:h-[4px] w-full rounded-full">
+      <div
+        className={`${color} absolute top-0 left-0 h-full rounded-full transition-all duration-500 ease-out`}
+        style={{ width: `${percentage}%` }}
+      />
+    </div>
+  </div>
+);
+
+const SkillsSection = () => (
+  <div className="w-full md:w-1/2">
+    <h2 className="text-xl md:text-2xl font-bold mb-6 text-gray-80000">
+      Skills & Expertise
+    </h2>
+    {SKILLS_DATA.map((skill) => (
+      <SkillBar key={skill.name} {...skill} />
+    ))}
+  </div>
+);
+
+const AboutSection = () => (
+  <div className="w-full md:w-1/2 md:pr-8">
+    <h2 className="text-xl md:text-2xl font-bold mb-6 text-gray-80000">
+      About Me
+    </h2>
+    <p className="text-base md:text-lg leading-relaxed text-gray-70000">
+      I'm Suvannet, currently pursuing a degree in Information and Communication
+      Engineering at the Institute of Technology of Cambodia. I'm known for my
+      positive mindset, strong motivation, and excellent communication skills.
+      I have a deep respect for talented individuals and a relentless drive for
+      self-improvement. Passionate about lifelong learning, I actively seek
+      opportunities to grow, sharpen my skills, and broaden my knowledge.
+    </p>
+  </div>
+);
+
+const StatCard = ({ icon: IconComponent, value, label }) => (
+  <div className="flex items-center gap-4 p-4 bg-white  rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+    <div className="flex-shrink-0">
+      <img
+        src={IconComponent}
+        className="w-12 h-12 md:w-16 md:h-16 hover:scale-110 transition-transform duration-300 cursor-pointer"
+        alt={`${label} icon`}
+        loading="lazy"
+      />
+    </div>
+    <div className="flex-1">
+      <h3 className="text-xl md:text-2xl font-bold text-gray-80000">
+        {value}
+      </h3>
+      <p className="text-sm md:text-base text-gray-60000 mt-1">
+        {label}
+      </p>
+    </div>
+  </div>
+);
+
+const StatsSection = () => (
+  <section className="my-16 md:my-20">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      {STATS_DATA.map((stat, index) => (
+        <StatCard key={index} {...stat} />
+      ))}
+    </div>
+  </section>
+);
+
+const CallToAction = () => (
+  <div className="text-center mb-10 md:mb-16">
+    <p className="text-base md:text-lg text-gray-70000 leading-relaxed">
+      Let's start a conversation to explore new technology together.
+      <button className="text-red-400 font-semibold hover:text-red-500red-300 transition-colors duration-300 ml-2 underline underline-offset-2 hover:underline-offset-4">
+        Click here
+      </button>
+      {" "}to contact me!
+    </p>
+  </div>
+);
+
+const MainContentCard = ({ children }) => (
+  <div className="w-full bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 md:p-8">
+    {children}
+  </div>
+);
+
+// Main Component
+const AboutMeComponent = () => {
+  return (
+    <main className="min-h-screen px-5 py-8 flex justify-center items-center ">
+      <div className="w-full max-w-7xl">
+        <div className="space-y-8">
+          {/* Header Section */}
+          <section className="flex flex-col items-center gap-6">
+            <div className="w-full max-w-2xl">
+              <ProfileHeader />
+              <StarRating />
+              <ProfileCard />
+            </div>
+
+            <MainContentCard>
+              <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+                <AboutSection />
+                <div className="hidden lg:block w-px bg-gray-200" />
+                <SkillsSection />
+              </div>
+            </MainContentCard>
+          </section>
+
+          {/* Stats Section */}
+          <StatsSection />
+
+          {/* Call to Action */}
+          <CallToAction />
+        </div>
+      </div>
+    </main>
   );
 };
 
