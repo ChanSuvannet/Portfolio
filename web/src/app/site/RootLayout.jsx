@@ -9,6 +9,7 @@ const EducationComponent = lazy(() => import("./Education"));
 const VolunteerWorkComponent = lazy(() => import("./Volunteer"));
 const ExperienceComponent = lazy(() => import("./Experience"));
 const SkillComponent = lazy(() => import("./Skill"));
+const PorjectComponent = lazy(() => import("./Project"));
 
 const FloatingDockDemo = lazy(() => import("../../helper/FloatingDock"));
 
@@ -19,6 +20,7 @@ const sections = [
   { id: "education", Component: EducationComponent, label: "Education" },
   { id: "volunteer", Component: VolunteerWorkComponent, label: "Volunteer Work" },
   { id: "experience", Component: ExperienceComponent, label: "Experience" },
+  { id: "projects", Component: PorjectComponent, label: "Projects" },
   { id: "skills", Component: SkillComponent, label: "Skills" },
 ];
 
@@ -32,7 +34,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex justify-center py-8 text-red-600">
+        <div className="flex justify-center py-8 text-red-500 h-screen">
           Something went wrong. Please try refreshing the page.
         </div>
       );

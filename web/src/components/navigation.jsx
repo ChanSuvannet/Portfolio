@@ -69,6 +69,11 @@ const Navigation = () => {
       <div className="container z-50 mx-auto">
         <div className="relative flex items-center justify-between">
           <div className="z-50 flex items-center justify-between w-full px-4">
+            <div className="flex md:pt-0 pt-[55px] sm:pt-0 ">
+              <span className="flex w-3 h-3 me-3 bg-red-500 rounded-full"></span>
+              <span className="flex w-3 h-3 me-3 bg-yellow-300 rounded-full"></span>
+              <span className="flex w-3 h-3 me-3 bg-green-500 rounded-full"></span>
+            </div>
             <div >
               <button
                 onClick={() => setOpen(!open)}

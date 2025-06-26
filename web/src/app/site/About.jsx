@@ -54,15 +54,14 @@ const ProfileHeader = () => (
         loading="lazy"
       />
     </div>
-
-    <div className="flex justify-center items-start mt-5 gap-2">
-      <span className="text-base leading-relaxed">
-        I'm not a great programmer, I'm just a good programmer with great habits.
-      </span>
+    <div className="flex justify-center mt-8 px-4">
+      <blockquote className="border-l-4 border-purple-600 pl-4 italic text-gray-800 text-lg max-w-xl">
+        “I'm not a great programmer, I'm just a good programmer with great habits.”
+      </blockquote>
     </div>
 
     <div className="relative inline-flex items-center justify-center w-full">
-      <hr className="w-64 h-[2px] my-8 bg-gray-400 border-0 rounded" />
+      <hr className="w-64 h-[2px] my-8 bg-gray-200 border-0 rounded" />
       <div className="absolute px-4 -translate-x-1/2 left-1/2 flex items-center justify-center bg-white">
         <img
           className="pt-[1.2px]"
@@ -94,7 +93,7 @@ const ProfileCard = () => (
     <div className="font-medium mt-2">
       <h1 className="text-lg md:text-xl font-semibold">Chan Suvannet</h1>
       <p className="text-sm mt-1 text-gray-60000">Languages Spoken</p>
-      <div className="text-xs mt-1 text-gray-50000">
+      <div className="text-xs mt-1 text-gray-50000 italic">
         Khmer, English, and French.
       </div>
     </div>
@@ -187,7 +186,7 @@ const CallToAction = () => (
 );
 
 const MainContentCard = ({ children }) => (
-  <div className="w-full bg-white rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 md:p-8">
+  <div className="w-full bg-white rounded-3xl shadow-sm hover:shadow-lg transition-shadow duration-300 p-6 md:p-8">
     {children}
   </div>
 );

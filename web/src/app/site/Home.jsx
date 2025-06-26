@@ -17,7 +17,7 @@ const HomeComponent = () => {
               <div>
                 <div className="flex flex-col items-center justify-center">
                   {/* Gradient border wrapper */}
-                  <div className="w-44 h-44 rounded-full p-[5px] bg-gradient-to-r from-pink-500 to-purple-600 cursor-pointer">
+                  <div className="w-44 h-44 rounded-full p-[5px] bg-gradient-to-r from-pink-400 to-purple-600 cursor-pointer">
                     <div className="flex items-center justify-center w-full h-full bg-white rounded-full">
                       <img
                         src={Profile}
@@ -83,7 +83,7 @@ const HomeComponent = () => {
                 <div className="flex items-center justify-center pt-5">
                   <Cover>
                     <a href="https://t.me/chan_suvannet" target="_blank">
-                      <button className="w-[120px]  hover:text-white">
+                      <button className="w-[120px] text-gray-200  hover:text-white">
                         Hire Me
                       </button>
                     </a>

@@ -2,13 +2,28 @@ import { mdiCircle } from '@mdi/js';
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { default as Certificate1, default as Certificate2, default as Certificate3, default as Certificate4 } from "/src/assets/certificate/itc.png";
+import { default as Certificate1 } from "/src/assets/certificate/itc.png";
 const data = [
   {
-    title: "Youth Development in Digital Society: Rising Star in the North",
-    role: "Camping Support - MoEYS Cambodia | 2022",
+    title: "Techno Innovation Challenge Cambodia",
+    role: "Media Team - ITC | 2025",
     description:
-      "Facilitated youth engagement programs focused on digital literacy and leadership skills. Organized workshops, provided logistical support, and mentored participants to foster a tech-savvy generation in northern Cambodia.",
+      "Contributed to the success of the Techno Innovation Challenge by managing media coverage, coordinating with participants, and ensuring effective communication between teams and organizers, enhancing the visibility of innovative projects.",
+    certificate: Certificate1,
+
+  },
+  {
+    title: "GIC Family Gathering",
+    role: "Logistics Team - ITC | 2024",
+    description:
+      "Assisted in organizing the event by managing inventory, coordinating logistics, and procuring essential items to ensure a smooth and successful gathering.",
+    certificate: Certificate1,
+  },
+  {
+    title: "Cambodia 2023 32nd SEA Games",
+    role: "Technical Support - NCDD | 2023",
+    description:
+      "Supported the technical infrastructure for the SEA Games by managing communication systems, coordinating with event IT teams, and ensuring reliable network connectivity for media and organizers, contributing to the success of this regional sporting event.",
     certificate: Certificate1,
   },
   {
@@ -16,22 +31,15 @@ const data = [
     role: "Logistics and Technical Support - CADT | 2023",
     description:
       "Supported the conference by managing technical setups, troubleshooting equipment issues, organizing event logistics, assisting exhibitors with their tech displays, and ensuring a seamless overall experience for participants.",
-    certificate: Certificate2,
+    certificate: Certificate1,
   },
   {
-    title: "Cambodia 2023 32nd SEA Games",
-    role: "Technical Support - NCDD | 2023",
+    title: "Youth Development in Digital Society: Rising Star in the North",
+    role: "Camping Support - MoEYS Cambodia | 2022",
     description:
-      "Supported the technical infrastructure for the SEA Games by managing communication systems, coordinating with event IT teams, and ensuring reliable network connectivity for media and organizers, contributing to the success of this regional sporting event.",
-    certificate: Certificate3,
+      "Facilitated youth engagement programs focused on digital literacy and leadership skills. Organized workshops, provided logistical support, and mentored participants to foster a tech-savvy generation in northern Cambodia.",
+    certificate: Certificate1,
   },
-  {
-    title: "GIC Family Gathering",
-    role: "Logistics Team - ITC | 2024",
-    description:
-      "Assisted in organizing the event by managing inventory, coordinating logistics, and procuring essential items to ensure a smooth and successful gathering.",
-    certificate: Certificate4,
-  }
 
 ];
 
@@ -75,7 +83,7 @@ const VolunteerWorkComponent = () => {
                 src="https://cdn-icons-png.flaticon.com/512/5944/5944552.png"
                 alt="Volunteer Icon"
               />
-              <h1 className="text-xl font-bold max-600:text-2xl">
+              <h1 className="text-3xl font-bold">
                 Volunteer Work
               </h1>
 
