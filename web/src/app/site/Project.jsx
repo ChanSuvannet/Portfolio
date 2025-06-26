@@ -9,17 +9,17 @@ import {
   IconWorld
 } from "@tabler/icons-react";
 import { useState } from 'react';
-
+import DmsImage from '../../assets/projects/dms.png';
 // Professional Project Data
 const projectsData = [
   {
     id: 1,
-    title: "Enterprise Dashboard System",
-    description: "A comprehensive analytics platform for business intelligence and data visualization with real-time reporting capabilities.",
+    title: "Document Management System",
+    description: "A comprehensive document management system for secure storage, retrieval, and collaboration on sensitive documents.",
     category: "Application",
-    technologies: ["React", "Node.js", "PostgreSQL", "AWS"],
+    technologies: ["Nest.js", "Angular", "PostgreSQL", "Docker"],
     status: "Completed",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=entropy&auto=format",
+    image: DmsImage,
     icon: <IconTableColumn className="h-5 w-5 text-blue-600" />,
     className: "md:col-span-2",
     link: "#"
