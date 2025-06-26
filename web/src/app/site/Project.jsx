@@ -22,6 +22,8 @@ const projectsData = [
     image: DmsImage,
     icon: <IconTableColumn className="h-5 w-5 text-blue-600" />,
     className: "md:col-span-2",
+    documentation: "https://skitter-agenda-833.notion.site/Document-Management-System-21e07e0faa4e81059015c853045da6f1",
+    website: "#",
     link: "#"
   },
   {
@@ -180,9 +182,14 @@ const ProjectCard = ({ project }) => {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
-          <button className="flex-1 px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors">
+          <a
+            href={project.documentation || "#"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors text-center"
+          >
             View Project
-          </button>
+          </a>
           {project.category === 'Open Source' && (
             <button className="p-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
               <IconBrandGithub className="h-4 w-4 text-gray-600" />
