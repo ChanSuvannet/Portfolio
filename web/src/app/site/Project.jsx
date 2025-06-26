@@ -235,7 +235,7 @@ const ProfessionalProjectComponent = () => {
   const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
