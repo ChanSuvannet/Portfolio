@@ -270,13 +270,7 @@ const ProfessionalProjectComponent = () => {
 
         {/* See More Button */}
         {!showAll && filteredProjects.length > 4 && (
-          <div className="mt-8 text-center">
-            <button
-              onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 px-6 py-3 text-gray-500 rounded-full hover:opacity-90 transition"
-            >
-              See More Projects
-            </button>
+          <div className="mt-4 text-center">
             <SeeMoreButton
               showAll={showAll}
               setShowAll={setShowAll}
