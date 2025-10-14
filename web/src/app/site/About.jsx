@@ -1,7 +1,6 @@
 import { mdiStar, mdiStarHalfFull } from '@mdi/js';
 import Icon from '@mdi/react';
 import { motion } from 'framer-motion';
-import Profile from "/src/assets/image/pic.jpg";
 import Coffee from "/src/assets/svg/cafe.svg";
 import Certificate from "/src/assets/svg/certificate.svg";
 import Code from "/src/assets/svg/code.svg";
@@ -84,14 +83,8 @@ const ProfileHeader = () => (
 
 const ProfileCard = () => (
   <div className="flex flex-col justify-center items-center text-center">
-    <img
-      className="w-10 h-10 rounded-full object-cover"
-      src={Profile}
-      alt="Chan Suvannet profile picture"
-      loading="lazy"
-    />
-    <div className="font-medium mt-2">
-      <h1 className="text-lg md:text-xl font-semibold">Chan Suvannet</h1>
+    
+    <div className="font-medium">
       <p className="text-sm mt-1 text-gray-60000">Languages Spoken</p>
       <div className="text-xs mt-1 text-gray-50000 italic">
         Khmer, English, and French.

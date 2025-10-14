@@ -1,21 +1,34 @@
 import {
   IconBrandGithub,
-  IconClipboardCopy,
-  IconCode,
-  IconDeviceMobile,
-  IconFileBroken,
   IconFilter,
   IconTableColumn,
   IconWorld
 } from "@tabler/icons-react";
 import { useState } from 'react';
+import AMTImage from '../../assets/projects/amt.png';
+import CCNImage from '../../assets/projects/ccn.png';
 import DmsImage from '../../assets/projects/dms.png';
+import MMEImage from '../../assets/projects/mme.png';
+import TDMSImage from '../../assets/projects/tdms.png';
+import { SeeMoreButton } from '../../components/seemore';
 // Professional Project Data
 const projectsData = [
   {
     id: 1,
+    title: "Technical Document Management System",
+    description: "Platform focus on file organization by subject/category, priority pinning for critical documents, streamlined project publishing document. Built with role-based access control.",
+    category: "Application",
+    technologies: ["PHP", "Laravel", "Angular", "MySQL"],
+    status: "Completed",
+    image: TDMSImage,
+    icon: <IconTableColumn className="h-5 w-5 text-blue-600" />,
+    className: "md:col-span-1",
+    link: "#"
+  },
+  {
+    id: 2,
     title: "Document Management System",
-    description: "A comprehensive document management system for secure storage, retrieval, and collaboration on sensitive documents.",
+    description: "A comprehensive enterprise-grade document management system featuring advanced review and approval workflows, intelligent task assignment with role-based permissions, real-time collaboration and progress tracking powered by WebSocket integration, and automated workflow generation with one-click PDF export capabilities. Designed for secure document governance, audit compliance, and enhanced team productivity.",
     category: "Application",
     technologies: ["Nest.js", "Angular", "PostgreSQL", "Docker"],
     status: "Completed",
@@ -27,65 +40,41 @@ const projectsData = [
     link: "#"
   },
   {
-    id: 2,
-    title: "Open Source UI Library",
-    description: "A modern, accessible component library built with TypeScript and Tailwind CSS for the developer community.",
-    category: "Open Source",
-    technologies: ["TypeScript", "React", "Tailwind CSS", "Storybook"],
-    status: "Active",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop&crop=entropy&auto=format",
-    icon: <IconCode className="h-5 w-5 text-green-600" />,
-    className: "md:col-span-1",
+    id: 3,
+    title: "Cambodian Council of Nurses (CCN) Management System",
+    description: "Professional nurse registry platform enabling comprehensive nurse management, license application processing, automated renewal license, seamless workplace transfer handling, training program tracking, and presentation/document management. Features secure multi-role authentication, audit-compliant workflows and verify license by QR.",
+    category: "Application",
+    technologies: ["Nuxt", "Angular", "Nest.js", "PostgreSQL"],
+    status: "Completed",
+    image: CCNImage,
+    icon: <IconTableColumn className="h-5 w-5 text-blue-600" />,
+    className: "md:col-span-2",
     link: "#"
   },
   {
-    id: 3,
-    title: "Mobile Banking App",
-    description: "Secure and intuitive mobile banking solution with biometric authentication and seamless transaction management.",
+    id: 4,
+    title: "ប្រព័ន្ធចុះលេខលិខិតចេញរ៉ែនិងថាមពល (DRS)",
+    description: "ត្រូវបានអភិវឌ្ឍដើម្បីគ្រប់គ្រងការចុះលេខលិខិត រដ្ឋបាលដោយស្វ័យប្រវត្ត តាមដានស្ថានភាពលិខិត ឯកសារចម្លងអន្តរក្រសួង-ស្ថាប័ន ផ្ទៀងផ្ទាត់ និងទាញយកឯកសារ តាមរយៈផ្ទាល verify.mme.gov.kh ដោយប្រើប្រាស់ QR Coder",
     category: "Application",
-    technologies: ["React Native", "Firebase", "Redux", "Stripe"],
-    status: "In Development",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop&crop=entropy&auto=format",
-    icon: <IconDeviceMobile className="h-5 w-5 text-purple-600" />,
+    technologies: ["Nuxt", "Angular", "Nest.js", "PostgreSQL"],
+    status: "Completed",
+    image: MMEImage,
+    icon: <IconTableColumn className="h-5 w-5 text-blue-600" />,
     className: "md:col-span-1",
     link: "#"
   },
   {
     id: 4,
-    title: "Documentation Generator",
-    description: "An automated documentation tool that generates beautiful, interactive documentation from code comments and API schemas.",
-    category: "Open Source",
-    technologies: ["Python", "FastAPI", "Vue.js", "Docker"],
-    status: "Completed",
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=600&h=400&fit=crop&crop=entropy&auto=format",
-    icon: <IconFileBroken className="h-5 w-5 text-indigo-600" />,
-    className: "md:col-span-2",
-    link: "#"
-  },
-  {
-    id: 5,
-    title: "E-commerce Platform",
-    description: "Full-featured e-commerce solution with inventory management, payment processing and customer analytics.",
+    title: "សមាគមសិស្ស-និស្សិត​​​​ ​អ.ម.ត ២ - អ.ម.ត ចិន (AMT)",
+    description: "ចុះឈ្មោះសិស្ស-និស្សិតថ្មី, ការដាក់ពាក្យអាហារូបករណ៍, ការពិនិត្យពាក្យសិស្ស-និស្សិត, ​បង្កើនប្រសិទ្ធភាពនៃការគ្រប់គ្រងទិន្នន័យ",
     category: "Application",
-    technologies: ["Next.js", "Prisma", "Stripe", "Vercel"],
+    technologies: ["Nest.js", "Angular", "PostgreSQL"],
     status: "Completed",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=entropy&auto=format",
-    icon: <IconWorld className="h-5 w-5 text-orange-600" />,
+    image: AMTImage,
+    icon: <IconTableColumn className="h-5 w-5 text-blue-600" />,
     className: "md:col-span-1",
     link: "#"
   },
-  {
-    id: 6,
-    title: "API Testing Framework",
-    description: "Comprehensive testing framework for REST APIs with automated test generation and performance monitoring.",
-    category: "Open Source",
-    technologies: ["Go", "Docker", "Kubernetes", "Grafana"],
-    status: "Active",
-    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop&crop=entropy&auto=format",
-    icon: <IconClipboardCopy className="h-5 w-5 text-red-600" />,
-    className: "md:col-span-1",
-    link: "#"
-  }
 ];
 
 // Filter Categories
@@ -284,10 +273,15 @@ const ProfessionalProjectComponent = () => {
           <div className="mt-8 text-center">
             <button
               onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 px-6 py-3  text-gray-500 rounded-full hover:opacity-90 transition"
+              className="inline-flex items-center gap-2 px-6 py-3 text-gray-500 rounded-full hover:opacity-90 transition"
             >
               See More Projects
             </button>
+            <SeeMoreButton
+              showAll={showAll}
+              setShowAll={setShowAll}
+              filteredProjects={filteredProjects}
+            />
           </div>
         )}
       </div>
