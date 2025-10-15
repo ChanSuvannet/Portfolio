@@ -85,7 +85,7 @@ const ExperienceComponent = () => {
         {/* Experience Timeline */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-200 via-purple-200 to-transparent"></div>
+          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-blue-200 via-purple-200 to-transparent overflow-y-hidden"></div>
 
           {experienceData.map((experience, index) => (
             <motion.div
