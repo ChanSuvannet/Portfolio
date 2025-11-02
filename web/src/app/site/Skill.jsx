@@ -37,7 +37,7 @@ const SkillComponent = () => {
               className="text-center mb-16"
             >
               <div className="flex justify-center pt-2 max-980:justify-center">
-                <h1 className="text-3xl font-bold">🛠 Skills Summary</h1>
+                <h1 className="text-2xl font-bold">🛠 Skills Summary</h1>
               </div>
             </motion.div>
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

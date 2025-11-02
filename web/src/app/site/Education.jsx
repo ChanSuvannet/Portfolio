@@ -13,7 +13,7 @@ const EducationComponent = () => {
     <div className="flex justify-center items-center h-full px-5 my-2">
       <div className="w-full h-auto max-w-7xl ">
         <div className="flex justify-center pt-2 max-980:justify-center">
-          <h1 className="text-3xl font-bold">🎓 Education</h1>
+          <h1 className="text-2xl font-bold">🎓 Education</h1>
         </div>
         <div className="flex justify-center gap-5 pt-6 i max-980:flex-col max-980:w-full max-600:flex-col">
           {/* school learn */}

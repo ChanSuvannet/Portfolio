@@ -83,7 +83,7 @@ const VolunteerWorkComponent = () => {
                 src="https://cdn-icons-png.flaticon.com/512/5944/5944552.png"
                 alt="Volunteer Icon"
               />
-              <h1 className="text-3xl font-bold">
+              <h1 className="text-2xl font-bold">
                 Volunteer Work
               </h1>
 

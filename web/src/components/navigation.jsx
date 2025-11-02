@@ -45,6 +45,11 @@ const menuData = [
     isMegaMenu: false,
     href: "/#projects",
   },
+  {
+    label: "Competitions",
+    isMegaMenu: false,
+    href: "/#competitions",
+  },
 ];
 
 const Navigation = () => {

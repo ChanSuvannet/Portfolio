@@ -83,7 +83,7 @@ const ProfileHeader = () => (
 
 const ProfileCard = () => (
   <div className="flex flex-col justify-center items-center text-center">
-    
+
     <div className="font-medium">
       <p className="text-sm mt-1 text-gray-60000">Languages Spoken</p>
       <div className="text-xs mt-1 text-gray-50000 italic">
@@ -125,12 +125,7 @@ const AboutSection = () => (
       About Me
     </h2>
     <p className="text-base md:text-lg leading-relaxed text-gray-70000">
-      I'm Suvannet, currently pursuing a degree in Information and Communication
-      Engineering at the Institute of Technology of Cambodia. I'm known for my
-      positive mindset, strong motivation, and excellent communication skills.
-      I have a deep respect for talented individuals and a relentless drive for
-      self-improvement. Passionate about lifelong learning, I actively seek
-      opportunities to grow, sharpen my skills, and broaden my knowledge.
+      I am a passionate, results-driven software engineer with strong expertise in full-stack development and microservices architecture. I specialize in building scalable web applications, optimizing user experiences, and collaborating in Agile teams. Recognized for my positive mindset, motivation, and excellent communication skills, I’m eager to tackle challenges and contribute to innovative software solutions.
     </p>
   </div>
 );

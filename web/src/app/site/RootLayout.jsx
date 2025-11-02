@@ -9,7 +9,8 @@ const EducationComponent = lazy(() => import("./Education"));
 const VolunteerWorkComponent = lazy(() => import("./Volunteer"));
 const ExperienceComponent = lazy(() => import("./Experience"));
 const SkillComponent = lazy(() => import("./Skill"));
-const PorjectComponent = lazy(() => import("./Project"));
+const ProjectComponent = lazy(() => import("./Project"));
+const CompetitionComponent = lazy(() => import("./Competition"));
 
 const FloatingDockDemo = lazy(() => import("../../helper/FloatingDock"));
 
@@ -20,7 +21,8 @@ const sections = [
   { id: "education", Component: EducationComponent, label: "Education" },
   { id: "volunteer", Component: VolunteerWorkComponent, label: "Volunteer Work" },
   { id: "experience", Component: ExperienceComponent, label: "Experience" },
-  { id: "projects", Component: PorjectComponent, label: "Projects" },
+  { id: "projects", Component: ProjectComponent, label: "Projects" },
+  // { id: "competitions", Component: CompetitionComponent, label: "Competitions" },
   { id: "skills", Component: SkillComponent, label: "Skills" },
 ];
 

@@ -236,7 +236,7 @@ const ProfessionalProjectComponent = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center pt-2 max-980:justify-center">
-            <h1 className="text-3xl font-bold">Recent Works</h1>
+            <h1 className="text-2xl font-bold">Recent Works</h1>
           </div>
         </div>
 
