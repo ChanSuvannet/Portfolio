@@ -82,9 +82,9 @@ const HomeComponent = () => {
                 </div>
                 <div className="flex items-center justify-center pt-5">
                   <Cover>
-                    <a href="https://t.me/chan_suvannet" target="_blank">
+                    <a href="https://app.enhancv.com/share/cf8cea19/?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic" target="_blank">
                       <button className="w-[120px] text-gray-200  hover:text-white">
-                        Hire Me
+                        Resume
                       </button>
                     </a>
                   </Cover>
