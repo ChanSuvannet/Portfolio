@@ -1,165 +1,222 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Podium from '../../assets/icon/podium.png';
+
+// Example data – add as many images as you want per event
 const data = [
   {
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80",
-    title: "Coding Hackathon 2024",
-    event: "National Tech Competition"
+    title: "ACTSmart Incubation Program Cohort",
+    event: "Digital Startup",
+    description: "Geek Agent",
+    images: [
+      "/src/assets/image/competition/act_1.jpg",
+      "/src/assets/image/competition/act_2.jpg",
+      "/src/assets/image/competition/act_3.jpg",
+    ],
   },
   {
-    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&q=80",
-    title: "Innovation Challenge",
-    event: "University Innovation Fair"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800&q=80",
-    title: "Science Olympiad",
-    event: "Regional Science Competition"
+    title: "Techno Innovation Challenge 2025",
+    event: "University Innovation",
+    description: "Voluteer",
+    images: [
+      "/src/assets/image/competition/techno_2025.jpg",
+      "/src/assets/image/competition/techno_2025_2.jpg",
+    ],
   },
 ];
 
 const CompetitionComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [currentMainSlide, setCurrentMainSlide] = useState(0);
+  const [currentModalSlide, setCurrentModalSlide] = useState(0);
 
-  const openModal = (image) => {
-    setSelectedImage(image);
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedImage(null);
-  };
-
+  // Auto-slide for main carousel
   useEffect(() => {
     if (data.length <= 1) return;
-    
+
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % data.length);
+      setCurrentMainSlide((prev) => (prev + 1) % data.length);
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
+  const openModal = (event) => {
+    setSelectedEvent(event);
+    setCurrentModalSlide(0);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedEvent(null);
+    setCurrentModalSlide(0);
+  };
+
+  const goToMainSlide = (index) => {
+    setCurrentMainSlide(index);
+  };
+
+  const nextModalSlide = () => {
+    setCurrentModalSlide((prev) => (prev + 1) % selectedEvent.images.length);
+  };
+
+  const prevModalSlide = () => {
+    setCurrentModalSlide((prev) => (prev - 1 + selectedEvent.images.length) % selectedEvent.images.length);
+  };
+
+  const goToModalSlide = (index) => {
+    setCurrentModalSlide(index);
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex items-start justify-center flex-grow px-4 py-10">
+    <div className="flex flex-col">
+      <div className="flex items-start justify-center flex-grow">
         <div className="w-full max-w-7xl">
           {/* Header */}
-          <div className="mb-8 text-center">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <img
-                className="w-8 h-8"
-                src={Podium}
-                alt="Competition Icon"
-              />
-              <h1 className="text-3xl font-bold text-gray-800">
-                Competition Events
-              </h1>
+          <div className="mb-12 text-center">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <img className="w-12 h-12" src={Podium} alt="Podium Icon" />
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-800">Competition Events</h1>
             </div>
-            <p className="text-gray-600">Events I've Participated In</p>
+            <p className="text-xl text-gray-600">Events I've Participated In</p>
           </div>
 
-          {/* Slideshow */}
-          <div className="relative w-full mx-auto mb-6 overflow-hidden">
+          {/* Main Slideshow */}
+          <div className="relative w-full mb-10 overflow-hidden">
             <div
-              className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              className="flex transition-transform duration-800 ease-in-out"
+              style={{ transform: `translateX(-${currentMainSlide * 100}%)` }}
             >
               {data.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-full px-2"
-                >
+                <div key={index} className="flex-shrink-0 w-full px-4">
                   <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 max-w-4xl mx-auto cursor-pointer"
-                    onClick={() => openModal(item.image)}
+                    whileHover={{ scale: 1.03 }}
+                    className="bg-white rounded-3xl w-full overflow-hidden shadow-lg hover:shadow-3xl transition-all duration-300 cursor-pointer mx-auto"
+                    onClick={() => openModal(item)}
                   >
-                    {/* Image Container */}
-                    <div className="relative aspect-video overflow-hidden bg-gray-200">
+                    {/* Image (first one) */}
+                    <div className="relative w-full aspect-video overflow-hidden bg-gray-200">
                       <img
-                        src={item.image}
+                        src={item.images[0]}
                         alt={item.title}
-                        className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
+                        className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                      
-                      {/* Event Badge */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                      {/* Badge */}
                       <div className="absolute top-4 right-4">
-                        <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-800 shadow-md">
+                        <span className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold text-gray-800 shadow-md">
                           {item.event}
                         </span>
                       </div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-800 mb-2">
-                        {item.title}
-                      </h3>
+                    <div className="p-8">
+                      <h3 className="text-2xl font-bold text-gray-800 mb-3">{item.title}</h3>
+                      {/* <p className="text-gray-600 mb-3">{item.description}</p> */}
+                      <p className="text-sm text-gray-500 font-medium">
+                        {item.images.length} {item.images.length === 1 ? 'photo' : 'photos'}
+                      </p>
                     </div>
                   </motion.div>
                 </div>
               ))}
             </div>
-          </div>
 
-          {/* Navigation Dots */}
-          {data.length > 1 && (
-            <div className="flex justify-center gap-2">
-              {data.map((_, index) => (
-                <motion.button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  whileTap={{ scale: 0.9 }}
-                  whileHover={{ scale: 1.2 }}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === index
-                      ? 'bg-blue-600 w-8'
+            {/* Main Dots */}
+            {data.length > 1 && (
+              <div className="flex justify-center gap-4 mt-8">
+                {data.map((_, index) => (
+                  <motion.button
+                    key={index}
+                    onClick={() => goToMainSlide(index)}
+                    whileTap={{ scale: 0.9 }}
+                    className={`w-4 h-4 rounded-full transition-all duration-300 ${currentMainSlide === index
+                      ? 'bg-blue-600 w-12'
                       : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
+                      }`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Modal for Full Image View */}
-      {isModalOpen && (
+      {/* Modal Carousel */}
+      {isModalOpen && selectedEvent && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4"
           onClick={closeModal}
         >
           <button
             onClick={closeModal}
-            className="absolute top-4 right-4 text-white text-4xl font-light hover:rotate-90 transition-transform duration-300 w-12 h-12 flex items-center justify-center hover:bg-white/10 rounded-full"
+            className="absolute top-6 right-6 text-white text-6xl font-light hover:rotate-90 transition-transform duration-300 w-20 h-20 flex items-center justify-center hover:bg-white/10 rounded-full"
           >
             ×
           </button>
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            className="relative max-w-6xl max-h-[90vh] w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedImage}
-              alt="Competition Event"
-              className="object-contain w-full h-full rounded-lg shadow-2xl"
-            />
-          </motion.div>
+
+          <div className="relative max-w-7xl w-full max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+            {/* Image Slider */}
+            <div className="relative overflow-hidden rounded-2xl">
+              <div
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{ transform: `translateX(-${currentModalSlide * 100}%)` }}
+              >
+                {selectedEvent.images.map((img, idx) => (
+                  <div key={idx} className="flex-shrink-0 w-full">
+                    <img
+                      src={img}
+                      alt={`${selectedEvent.title} - ${idx + 1}`}
+                      className="object-contain w-full max-h-[85vh] rounded-2xl shadow-2xl"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Arrows */}
+            {selectedEvent.images.length > 1 && (
+              <>
+                <button
+                  onClick={prevModalSlide}
+                  className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-5 rounded-full transition text-3xl"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={nextModalSlide}
+                  className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-5 rounded-full transition text-3xl"
+                >
+                  →
+                </button>
+              </>
+            )}
+
+            {/* Dots */}
+            {selectedEvent.images.length > 1 && (
+              <div className="flex justify-center gap-3 mt-6">
+                {selectedEvent.images.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => goToModalSlide(idx)}
+                    className={`w-3 h-3 rounded-full transition-all ${currentModalSlide === idx ? 'bg-white w-10' : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                  />
+                ))}
+              </div>
+            )}
+
+            {/* Caption */}
+            <div className="text-center mt-6 text-white text-xl font-medium">
+              {selectedEvent.title} – {currentModalSlide + 1} / {selectedEvent.images.length}
+            </div>
+          </div>
         </motion.div>
       )}
     </div>

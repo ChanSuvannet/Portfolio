@@ -22,7 +22,7 @@ const sections = [
   { id: "volunteer", Component: VolunteerWorkComponent, label: "Volunteer Work" },
   { id: "experience", Component: ExperienceComponent, label: "Experience" },
   { id: "projects", Component: ProjectComponent, label: "Projects" },
-  // { id: "competitions", Component: CompetitionComponent, label: "Competitions" },
+  { id: "competitions", Component: CompetitionComponent, label: "Competitions" },
   { id: "skills", Component: SkillComponent, label: "Skills" },
 ];
 
