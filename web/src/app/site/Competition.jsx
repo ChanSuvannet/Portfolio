@@ -1,6 +1,11 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Podium from '../../assets/icon/podium.png';
+import act1 from '/src/assets/image/competition/act_1.jpg';
+import act2 from '/src/assets/image/competition/act_2.jpg';
+import act3 from '/src/assets/image/competition/act_3.jpg';
+import techno2025 from '/src/assets/image/competition/techno_2025.jpg';
+import techno2025_2 from '/src/assets/image/competition/techno_2025_2.jpg';
 
 // Example data – add as many images as you want per event
 const data = [
@@ -8,20 +13,13 @@ const data = [
     title: "ACTSmart Incubation Program Cohort",
     event: "Digital Startup",
     description: "Geek Agent",
-    images: [
-      "/src/assets/image/competition/act_1.jpg",
-      "/src/assets/image/competition/act_2.jpg",
-      "/src/assets/image/competition/act_3.jpg",
-    ],
+    images: [act1, act2, act3],
   },
   {
     title: "Techno Innovation Challenge 2025",
     event: "University Innovation",
     description: "Voluteer",
-    images: [
-      "/src/assets/image/competition/techno_2025.jpg",
-      "/src/assets/image/competition/techno_2025_2.jpg",
-    ],
+    images: [techno2025, techno2025_2],
   },
 ];
 
