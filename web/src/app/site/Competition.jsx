@@ -75,10 +75,10 @@ const CompetitionComponent = () => {
           {/* Header */}
           <div className="mb-12 text-center">
             <div className="flex items-center justify-center gap-4 mb-4">
-              <img className="w-12 h-12" src={Podium} alt="Podium Icon" />
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800">Competition Events</h1>
+              <img className="w-6 h-6" src={Podium} alt="Podium Icon" />
+              <h1 className="text-2xl font-bold text-gray-800">Competition Events</h1>
             </div>
-            <p className="text-xl text-gray-600">Events I've Participated In</p>
+            <p className="text-md text-gray-600">Events I've Participated In</p>
           </div>
 
           {/* Main Slideshow */}
