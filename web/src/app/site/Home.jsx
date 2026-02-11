@@ -1,7 +1,7 @@
 import { BackgroundLines } from "../../components/background-lines";
 import { ContainerTextFlip } from "../../components/container-text-flip";
 import { Cover } from "../../components/cover";
-import Profile from "/src/assets/image/image.png";
+import Profile from "/src/assets/image/me_1.png";
 import Discord from "/src/assets/svg/discord.svg";
 import GitHub from "/src/assets/svg/github.svg";
 import LinkIn from "/src/assets/svg/icons8-linkedin.svg";
@@ -26,7 +26,6 @@ const HomeComponent = () => {
                       />
                     </div>
                   </div>
-
                   {/* Name and title */}
                   <div className="flex flex-col items-center justify-center pt-5">
                     <h1 className="text-[34px] max-600:text-[28px] font-primary">
@@ -82,9 +81,9 @@ const HomeComponent = () => {
                 </div>
                 <div className="flex items-center justify-center pt-5">
                   <Cover>
-                    <a href="https://app.enhancv.com/share/cf8cea19/?utm_medium=growth&utm_campaign=share-resume&utm_source=dynamic" target="_blank">
+                    <a href="https://t.me/chan_suvannet" target="_blank">
                       <button className="w-[120px] text-gray-200  hover:text-white">
-                        Resume
+                        Hire Me
                       </button>
                     </a>
                   </Cover>
