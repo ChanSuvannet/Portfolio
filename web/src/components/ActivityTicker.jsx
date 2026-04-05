@@ -29,7 +29,7 @@ const CHAIN_COLORS = {
 const TickerItem = ({ item }) => {
   const chain = CHAIN_COLORS[item.chain] || CHAIN_COLORS.CI;
   return (
-    <span className="inline-flex items-center gap-3 mx-8 whitespace-nowrap">
+    <span className="inline-flex flex-shrink-0 items-center gap-3 mx-6 whitespace-nowrap select-none">
       {/* Hash */}
       <span className="font-mono text-xs text-slate-500">{item.hash}</span>
 
@@ -67,54 +67,65 @@ const ActivityTicker = () => {
   const [trackWidth, setTrackWidth] = useState(0);
 
   useEffect(() => {
-    if (trackRef.current) {
-      setTrackWidth(trackRef.current.scrollWidth / 2);
-    }
+    const measure = () => {
+      if (trackRef.current) {
+        // scrollWidth / 2 because we duplicate the feed
+        setTrackWidth(trackRef.current.scrollWidth / 2);
+      }
+    };
+    // Measure after paint so inline-flex is fully laid out
+    const raf = requestAnimationFrame(measure);
+    return () => cancelAnimationFrame(raf);
   }, []);
 
-  // Double the feed for seamless loop
+  // Double the feed for a seamless CSS marquee loop
   const doubled = [...FEED, ...FEED];
 
   return (
     <div
-      className="relative w-full overflow-hidden"
+      className="relative w-full"
       style={{
         background: "rgba(13,13,26,0.8)",
         borderTop: "1px solid rgba(6,182,212,0.1)",
         borderBottom: "1px solid rgba(6,182,212,0.1)",
         backdropFilter: "blur(8px)",
+        /* Hard-clip — never let ticker content paint outside its box */
+        overflow: "hidden",
+        maxWidth: "100vw",
       }}
     >
       {/* Left fade mask */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+        className="absolute left-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
         style={{ background: "linear-gradient(90deg, rgba(13,13,26,1) 0%, transparent 100%)" }}
       />
       {/* Right fade mask */}
       <div
-        className="absolute right-0 top-0 bottom-0 w-20 z-10 pointer-events-none"
+        className="absolute right-0 top-0 bottom-0 w-16 z-10 pointer-events-none"
         style={{ background: "linear-gradient(270deg, rgba(13,13,26,1) 0%, transparent 100%)" }}
       />
 
-      {/* Header label */}
+      {/* "LIVE" label — stays on left, clips the track behind it */}
       <div
-        className="absolute left-0 top-0 bottom-0 z-20 flex items-center px-4 gap-2"
+        className="absolute left-0 top-0 bottom-0 z-20 flex items-center px-3 gap-2"
         style={{
-          background: "rgba(13,13,26,0.95)",
+          background: "rgba(13,13,26,0.98)",
           borderRight: "1px solid rgba(6,182,212,0.1)",
         }}
       >
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        <span className="text-[10px] font-mono font-semibold text-emerald-400 uppercase tracking-widest">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+        <span className="text-[10px] font-mono font-semibold text-emerald-400 uppercase tracking-widest whitespace-nowrap">
           Live
         </span>
       </div>
 
-      {/* Scrolling track */}
-      <div className="pl-20 py-2">
+      {/* Scrolling track — pl-16 clears the LIVE label */}
+      <div className="pl-16 py-2" style={{ overflow: "hidden" }}>
         <motion.div
           ref={trackRef}
-          className="inline-flex"
+          /* Use flexbox but constrain to a single line with no wrap */
+          className="flex flex-nowrap"
+          style={{ willChange: "transform" }}
           animate={trackWidth ? { x: [0, -trackWidth] } : {}}
           transition={{
             duration: 30,

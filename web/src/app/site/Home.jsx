@@ -156,21 +156,21 @@ const HomeComponent = () => {
     >
       <ParticleBackground />
 
-      {/* Ambient glows */}
+      {/* Ambient glows — clamped so they never bleed past the viewport edge */}
       <div
-        className="absolute top-1/4 -left-32 w-96 h-96 rounded-full pointer-events-none"
+        className="absolute top-1/4 left-0 w-64 h-64 rounded-full pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)",
           filter: "blur(40px)",
+          transform: "translateX(-40%)",
         }}
       />
       <div
-        className="absolute bottom-1/4 -right-32 w-96 h-96 rounded-full pointer-events-none"
+        className="absolute bottom-1/4 right-0 w-64 h-64 rounded-full pointer-events-none"
         style={{
-          background:
-            "radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(6,182,212,0.10) 0%, transparent 70%)",
           filter: "blur(40px)",
+          transform: "translateX(40%)",
         }}
       />
 

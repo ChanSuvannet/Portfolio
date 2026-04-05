@@ -8,8 +8,8 @@ import { motion } from "framer-motion";
 const SectionDivider = ({ flip = false }) => {
   return (
     <div
-      className="relative w-full h-8 flex items-center overflow-hidden"
-      style={{ background: "transparent" }}
+      className="relative w-full h-8 flex items-center"
+      style={{ background: "transparent", overflow: "hidden", maxWidth: "100vw" }}
       aria-hidden="true"
     >
       {/* Static gradient track */}

@@ -60,7 +60,7 @@ function App() {
       <Navigation />
 
       {/* Blockchain activity ticker — sits just below the nav */}
-      <div className="fixed top-16 left-0 right-0 z-40">
+      <div className="fixed top-16 left-0 right-0 z-40 overflow-hidden" style={{ maxWidth: '100vw' }}>
         <ActivityTicker />
       </div>
 
