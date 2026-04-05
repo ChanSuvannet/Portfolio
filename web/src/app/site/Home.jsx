@@ -134,7 +134,7 @@ const StatusBadge = () => (
 const HomeComponent = () => {
   const [codeLines] = useState([
     '> const developer = "Chan Suvannet"',
-    '> developer.skills = ["NestJS", "Angular", "NextJS"]',
+    '> developer.skills = ["NestJS", "Angular", "AI"]',
     '> developer.status = "building_cool_stuff" ✓',
   ]);
   const [visibleLines, setVisibleLines] = useState(0);
