@@ -1,130 +1,155 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { experienceData } from "../../data/experience";
 
-const experienceData = [
-  {
-    id: 1,
-    company: "Ministry of Public Works and Transport",
-    position: "Full Stack Developer - Internship",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emblem_of_MPWT_%28Cambodia%29.svg/1200px-Emblem_of_MPWT_%28Cambodia%29.svg.png",
-    duration: "June 2025 - October 2025",
-    website: "https://www.mpwt.gov.kh/kh/home",
-    achievements: [
-      "Developed Document Management System to modernize government workflows",
-      "Facilitated easy document search and streamlined administrative workflows across multiple departments",
-      "Implemented review, approval, task assignment & real-time work progress tracking with WebSocket integration",
-      "Secured document sharing with role-based access, standardized templates & confidentiality controls",
-      "Automated workflow generation as PDF for official documentation"
-    ],
-    technologies: ['Angular', 'NestJS', 'PostgreSQL', 'Docker', 'WebSocket', 'Resend']
-  },
-  {
-    id: 2,
-    company: "CamCyber Digital Tech Team",
-    position: "Software Engineer - Part Time",
-    logo: "https://www.camcyber.com/assets/img/camcyber.png",
-    duration: "November 2023 – November 2025",
-    website: "https://www.camcyber.com",
-    achievements: [
-      "Developed scalable full-stack applications serving 1,000+ users using Angular, NestJS, Laravel, and PostgreSQL/MySQL",
-      "Integrated advanced third-party solutions including jsreport for dynamic reporting, WebSocket for real-time communication, and Keycloak for secure authentication",
-      "Designed responsive front-end interfaces and data-driven dashboards, significantly improving user engagement and product usability",
-      "Optimized CI/CD pipeline using Git and DigitalOcean, enabling faster and more reliable deployments across development stages"
-    ],
-    technologies: ['UML', 'Angular', 'NestJS', 'Laravel', 'PostgreSQL', 'MySQL', 'Docker', 'WebSocket', 'Keycloak', 'Git', 'DigitalOcean']
-  },
-];
+const ExperienceCard = ({ experience, index }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ delay: index * 0.15, duration: 0.6 }}
+      className="relative group"
+    >
+      {/* Hover glow */}
+      <div
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        style={{ background: `radial-gradient(ellipse at top left, ${experience.glow} 0%, transparent 60%)` }}
+      />
+
+      <div
+        className="relative rounded-2xl p-6 transition-all duration-300 group-hover:-translate-y-1"
+        style={{
+          background: 'rgba(13,13,26,0.8)',
+          border: '1px solid rgba(255,255,255,0.06)',
+          backdropFilter: 'blur(16px)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+        }}
+      >
+        {/* Header row */}
+        <div className="flex items-start gap-4 mb-5">
+          {/* Logo */}
+          <div
+            className={`flex-shrink-0 relative w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden`}
+            style={{
+              background: 'rgba(255,255,255,0.05)',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <img
+              src={experience.logo}
+              alt={experience.company}
+              className="w-9 h-9 object-contain"
+            />
+          </div>
+
+          <div className="flex-1 min-w-0">
+            <h3 className="text-base font-semibold text-slate-100 leading-tight">{experience.position}</h3>
+            <p className="text-sm text-slate-400 mt-0.5">{experience.company}</p>
+            <div className="flex items-center gap-2 mt-1.5">
+              <span
+                className={`inline-block w-1.5 h-1.5 rounded-full bg-gradient-to-r ${experience.color}`}
+              />
+              <span className="text-xs font-mono text-slate-500">{experience.duration}</span>
+            </div>
+          </div>
+
+          {/* External link */}
+          {experience.website && (
+            <a
+              href={experience.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 p-2 rounded-lg text-slate-500 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all"
+              aria-label={`Visit ${experience.company}`}
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          )}
+        </div>
+
+        {/* Divider */}
+        <div className="h-px mb-5" style={{ background: 'linear-gradient(90deg, rgba(6,182,212,0.2), transparent)' }} />
+
+        {/* Achievements */}
+        <ul className="space-y-2.5 mb-5">
+          {experience.achievements.map((item, i) => (
+            <motion.li
+              key={i}
+              initial={{ opacity: 0, x: -10 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ delay: index * 0.15 + i * 0.07 + 0.3 }}
+              className="flex items-start gap-3 text-sm text-slate-400"
+            >
+              <span
+                className={`flex-shrink-0 mt-[5px] w-1.5 h-1.5 rounded-full bg-gradient-to-r ${experience.color}`}
+              />
+              {item}
+            </motion.li>
+          ))}
+        </ul>
+
+        {/* Tech stack */}
+        <div className="pt-4 border-t border-white/5">
+          <div className="flex flex-wrap gap-2">
+            {experience.technologies.map((tech) => (
+              <span
+                key={tech}
+                className="tech-badge"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const ExperienceComponent = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.2 });
+
   return (
-    <div className="min-h-screen px-6 py-16">
-      <div className="max-w-7xl mx-auto">
+    <section
+      ref={ref}
+      className="relative min-h-screen px-4 py-24"
+      style={{ background: 'linear-gradient(180deg, #0a0a0f 0%, #0d0d1a 100%)' }}
+    >
+      {/* Ambient glow */}
+      <div className="absolute top-1/4 right-1/4 w-80 h-80 pointer-events-none"
+        style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)', filter: 'blur(40px)' }} />
+
+      <div className="max-w-4xl mx-auto">
+
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <div className="text-center mb-2">
-            <div className="flex justify-center max-980:justify-center">
-              <h1 className="text-2xl font-bold">💼 Work Experience</h1>
-            </div>
-            <p className="text-gray-600 mt-1">Building innovative solutions through hands-on development</p>
-          </div>
+          <p className="section-subtitle mb-3">// work experience</p>
+          <h2 className="section-title text-3xl font-bold">
+            Professional <span className="text-gradient-cyan">Journey</span>
+          </h2>
+          <p className="text-sm text-slate-500 mt-3">Building innovative solutions through hands-on development</p>
         </motion.div>
 
-        {/* Experience List */}
-        <div className="space-y-8">
+        {/* Cards */}
+        <div className="space-y-6">
           {experienceData.map((experience, index) => (
-            <motion.div
-              key={experience.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-            >
-              {/* Company Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 p-2 bg-gray-50 border border-gray-200 rounded">
-                    <img
-                      src={experience.logo}
-                      alt={experience.company}
-                      className="object-contain w-full h-full"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-semibold text-gray-900">{experience.position}</h2>
-                    <p className="text-gray-700">{experience.company}</p>
-                    <p className="text-sm text-gray-500">{experience.duration}</p>
-                  </div>
-                </div>
-
-                {experience.website && (
-                  <a
-                    href={experience.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
-                    aria-label={`Visit ${experience.company} website`}
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                )}
-              </div>
-
-              {/* Achievements */}
-              <div className="mb-4">
-                <ul className="space-y-2">
-                  {experience.achievements.map((achievement, achIndex) => (
-                    <li key={achIndex} className="flex items-start gap-2 text-gray-700">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 mt-2 bg-gray-400 rounded-full"></span>
-                      <span>{achievement}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tech Stack */}
-              <div className="pt-4 border-t border-gray-100">
-                <div className="flex flex-wrap gap-2">
-                  {experience.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 text-sm text-gray-700 bg-gray-100 border border-gray-200 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            <ExperienceCard key={experience.id} experience={experience} index={index} />
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,4 +1,3 @@
-"use client";;
 import React, { useEffect, useId, useState } from "react";
 
 import { motion } from "framer-motion";
@@ -46,10 +45,15 @@ export function ContainerTextFlip({
             animate={{ width }}
             transition={{ duration: animationDuration / 2000 }}
             className={cn(
-                "relative inline-block rounded-lg pt-2 pb-3 text-center text-[15px] font-bold text-gray-700 md:text-lg ",
-
+                "relative inline-block rounded-lg pt-2 pb-3 text-center text-[15px] font-bold md:text-lg",
                 className
             )}
+            style={{
+              background: 'linear-gradient(135deg, rgba(6,182,212,0.12), rgba(139,92,246,0.12))',
+              border: '1px solid rgba(6,182,212,0.25)',
+              color: '#06b6d4',
+              fontFamily: 'Fira Code, monospace',
+            }}
             key={words[currentWordIndex]}>
             <motion.div
                 transition={{

@@ -1,0 +1,37 @@
+export const experienceData = [
+  {
+    id: 1,
+    company: "Ministry of Public Works and Transport",
+    position: "Full Stack Developer — Internship",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Emblem_of_MPWT_%28Cambodia%29.svg/1200px-Emblem_of_MPWT_%28Cambodia%29.svg.png",
+    duration: "June 2025 – October 2025",
+    website: "https://www.mpwt.gov.kh/kh/home",
+    color: "from-cyan-500 to-blue-500",
+    glow: "rgba(6,182,212,0.2)",
+    achievements: [
+      "Developed Document Management System to modernize government workflows",
+      "Facilitated easy document search and streamlined administrative workflows across multiple departments",
+      "Implemented review, approval, task assignment & real-time work progress tracking with WebSocket integration",
+      "Secured document sharing with role-based access, standardized templates & confidentiality controls",
+      "Automated workflow generation as PDF for official documentation",
+    ],
+    technologies: ["Angular", "NestJS", "PostgreSQL", "Docker", "WebSocket", "Resend"],
+  },
+  {
+    id: 2,
+    company: "CamCyber Digital Tech Team",
+    position: "Software Engineer — Part Time",
+    logo: "https://www.camcyber.com/assets/img/camcyber.png",
+    duration: "November 2023 – November 2025",
+    website: "https://www.camcyber.com",
+    color: "from-purple-500 to-pink-500",
+    glow: "rgba(139,92,246,0.2)",
+    achievements: [
+      "Developed scalable full-stack applications serving 1,000+ users using Angular, NestJS, Laravel, and PostgreSQL/MySQL",
+      "Integrated advanced third-party solutions including jsreport for dynamic reporting, WebSocket for real-time communication, and Keycloak for secure authentication",
+      "Designed responsive front-end interfaces and data-driven dashboards, significantly improving user engagement and product usability",
+      "Optimized CI/CD pipeline using Git and DigitalOcean, enabling faster and more reliable deployments across development stages",
+    ],
+    technologies: ["UML", "Angular", "NestJS", "Laravel", "PostgreSQL", "MySQL", "Docker", "WebSocket", "Keycloak", "Git", "DigitalOcean"],
+  },
+];
