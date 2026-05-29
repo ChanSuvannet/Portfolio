@@ -3,6 +3,7 @@ import CCNImage from "../assets/projects/ccn.png";
 import DmsImage from "../assets/projects/dms.png";
 import MMEImage from "../assets/projects/mme.png";
 import TDMSImage from "../assets/projects/tdms.png";
+import FileServiceImage from "../assets/projects/file_service.png";
 
 export const projectsData = [
   {
@@ -74,6 +75,20 @@ export const projectsData = [
     image: AMTImage,
     className: "md:col-span-1",
     link: "https://amt.uat.camcyber.com/#/auth",
+    accent: "from-rose-400 to-pink-600",
+    glow: "rgba(244,63,94,0.2)",
+  },
+  {
+    id: 6,
+    title: "File Service System",
+    description:
+      "A scalable open-source File Service platform built with Golang Fiber, Next.js, PostgreSQL, Redis, and Docker. Supports project-based file management, folder organization, secure public/private file access, external API integration, drag-and-drop uploads, and enterprise-ready architecture for high-performance file storage systems.",
+    category: "Open Source",
+    technologies: ["Golang", "Next.js", " PostgreSQL", "Redis", "Docker"],
+    status: "Completed",
+    image: FileServiceImage,
+    className: "md:col-span-1",
+    link: "https://github.com/ChanSuvannet/file-service",
     accent: "from-rose-400 to-pink-600",
     glow: "rgba(244,63,94,0.2)",
   },
