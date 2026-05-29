@@ -1,8 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ActivityTicker from "../components/ActivityTicker";
 import Navigation from "../components/navigation";
-import Web3Cursor from "../components/Web3Cursor";
 import "../style/index.css";
 import RootLayout from "./site/RootLayout";
 
@@ -16,11 +14,9 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div
-          className="flex justify-center py-8 text-red-400"
-          style={{ background: "#0a0a0f", minHeight: "100vh" }}
-        >
-          Something went wrong. Please try refreshing the page.
+        <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+          <p className="text-gray-900 font-semibold">Something went wrong.</p>
+          <p className="text-gray-500 text-sm mt-1">Please try refreshing the page.</p>
         </div>
       );
     }
@@ -36,14 +32,14 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: (
-      <div
-        className="flex flex-col items-center justify-center min-h-screen"
-        style={{ background: "#0a0a0f" }}
-      >
-        <p className="font-mono text-xl text-cyan-400">404</p>
-        <p className="text-slate-500 mt-2 font-mono text-sm">Block not found</p>
-        <a href="/" className="mt-6 text-xs font-mono text-cyan-400 underline underline-offset-4">
-          ← return home
+      <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+        <p className="text-5xl font-bold text-gray-900 mb-3">404</p>
+        <p className="text-gray-500 mb-6">The page you're looking for doesn't exist.</p>
+        <a
+          href="/"
+          className="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+        >
+          Back to Home
         </a>
       </div>
     ),
@@ -53,19 +49,8 @@ const router = createBrowserRouter([
 function App() {
   return (
     <ErrorBoundary>
-      {/* Global Web3 glowing cursor — desktop only */}
-      <Web3Cursor />
-
-      {/* Fixed navigation bar */}
       <Navigation />
-
-      {/* Blockchain activity ticker — sits just below the nav */}
-      <div className="fixed top-16 left-0 right-0 z-40 overflow-hidden" style={{ maxWidth: '100vw' }}>
-        <ActivityTicker />
-      </div>
-
-      {/* Main content — padded to clear nav + ticker (~16 + 32px = 48px) */}
-      <div style={{ paddingTop: "80px" }}>
+      <div style={{ paddingTop: "64px" }}>
         <RouterProvider router={router} />
       </div>
     </ErrorBoundary>

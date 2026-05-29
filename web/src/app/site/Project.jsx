@@ -1,48 +1,42 @@
-import { IconBrandGithub, IconExternalLink, IconFilter, IconWorld } from "@tabler/icons-react";
-import { AnimatePresence, motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { SeeMoreButton } from '../../components/seemore';
-import { projectsData } from '../../data/projects';
+import { IconBrandGithub, IconExternalLink, IconFilter } from "@tabler/icons-react";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { projectsData } from "../../data/projects";
 
 const filterCategories = [
-  { id: 'all',         label: 'All Projects', count: projectsData.length },
-  { id: 'opensource',  label: 'Open Source',  count: projectsData.filter(p => p.category === 'Open Source').length },
-  { id: 'application', label: 'Applications', count: projectsData.filter(p => p.category === 'Application').length },
+  { id: "all",         label: "All Projects", count: projectsData.length },
+  { id: "opensource",  label: "Open Source",  count: projectsData.filter(p => p.category === "Open Source").length },
+  { id: "application", label: "Applications", count: projectsData.filter(p => p.category === "Application").length },
 ];
 
 const FilterButton = ({ active, onClick, children, count }) => (
-  <motion.button
+  <button
     onClick={onClick}
-    whileHover={{ scale: 1.04 }}
-    whileTap={{ scale: 0.97 }}
-    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-150 ${
       active
-        ? 'text-white shadow-[0_0_20px_rgba(6,182,212,0.3)]'
-        : 'text-slate-400 hover:text-slate-200'
+        ? "text-white bg-blue-600 shadow-sm"
+        : "text-gray-600 bg-white border border-gray-200 hover:border-gray-300 hover:text-gray-900"
     }`}
-    style={active
-      ? { background: 'linear-gradient(135deg, rgba(6,182,212,0.25), rgba(139,92,246,0.25))', border: '1px solid rgba(6,182,212,0.4)' }
-      : { background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }
-    }
   >
     {children}
-    <span className={`text-xs px-1.5 py-0.5 rounded-full font-mono ${active ? 'bg-cyan-500/30 text-cyan-300' : 'bg-white/10 text-slate-500'}`}>
+    <span className={`text-xs px-1.5 py-0.5 rounded-full font-medium ${
+      active ? "bg-blue-500 text-white" : "bg-gray-100 text-gray-500"
+    }`}>
       {count}
     </span>
-  </motion.button>
+  </button>
 );
 
 const StatusBadge = ({ status }) => {
-  const config = {
-    'Completed':     { color: 'text-emerald-400', bg: 'rgba(16,185,129,0.1)', border: 'rgba(16,185,129,0.3)', dot: 'bg-emerald-400' },
-    'In Development':{ color: 'text-amber-400',   bg: 'rgba(245,158,11,0.1)', border: 'rgba(245,158,11,0.3)', dot: 'bg-amber-400' },
-    'Active':        { color: 'text-blue-400',    bg: 'rgba(59,130,246,0.1)', border: 'rgba(59,130,246,0.3)', dot: 'bg-blue-400' },
-  }[status] || { color: 'text-slate-400', bg: 'rgba(100,116,139,0.1)', border: 'rgba(100,116,139,0.3)', dot: 'bg-slate-400' };
+  const cfg = {
+    Completed:      { cls: "bg-green-50 text-green-700 border-green-200",  dot: "bg-green-500"  },
+    "In Development": { cls: "bg-amber-50 text-amber-700 border-amber-200",  dot: "bg-amber-400"  },
+    Active:         { cls: "bg-blue-50  text-blue-700  border-blue-200",   dot: "bg-blue-500"   },
+  }[status] || { cls: "bg-gray-50 text-gray-600 border-gray-200", dot: "bg-gray-400" };
 
   return (
-    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${config.color}`}
-      style={{ background: config.bg, border: `1px solid ${config.border}` }}>
-      <span className={`w-1.5 h-1.5 rounded-full ${config.dot}`} />
+    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${cfg.cls}`}>
+      <span className={`w-1.5 h-1.5 rounded-full ${cfg.dot}`} />
       {status}
     </span>
   );
@@ -50,49 +44,26 @@ const StatusBadge = ({ status }) => {
 
 const ProjectCard = ({ project, index }) => {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, amount: 0.2 });
-  const [hovered, setHovered] = useState(false);
+  const inView = useInView(ref, { once: true, amount: 0.15 });
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.1, duration: 0.5 }}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      className={`relative group overflow-hidden rounded-2xl ${project.className}`}
-      style={{
-        background: 'rgba(13,13,26,0.85)',
-        border: '1px solid rgba(255,255,255,0.06)',
-        backdropFilter: 'blur(12px)',
-      }}
+      transition={{ delay: index * 0.08, duration: 0.5 }}
+      className={`glass-card overflow-hidden ${project.className}`}
     >
-      {/* Hover glow overlay */}
-      <motion.div
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 pointer-events-none rounded-2xl"
-        style={{ background: `radial-gradient(ellipse at top, ${project.glow} 0%, transparent 60%)` }}
-      />
-
       {/* Image */}
-      <div className="relative h-48 overflow-hidden">
-        <motion.img
+      <div className="relative h-44 overflow-hidden bg-gray-100">
+        <img
           src={project.image}
           alt={project.title}
-          animate={{ scale: hovered ? 1.08 : 1 }}
-          transition={{ duration: 0.5 }}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
         />
-        {/* Image overlay */}
-        <div className="absolute inset-0"
-          style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(13,13,26,0.95) 100%)' }} />
-
-        {/* Badges on image */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between">
-          <span className="px-2.5 py-1 rounded-lg text-xs font-mono text-slate-400"
-            style={{ background: 'rgba(13,13,26,0.85)', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <span className="px-2 py-0.5 rounded-md text-xs bg-white/90 text-gray-600 border border-gray-200 font-medium">
             {project.category}
           </span>
           <StatusBadge status={project.status} />
@@ -100,49 +71,37 @@ const ProjectCard = ({ project, index }) => {
       </div>
 
       {/* Content */}
-      <div className="relative p-5">
-        {/* Gradient line */}
-        <div className={`h-0.5 w-12 rounded-full mb-4 bg-gradient-to-r ${project.accent}`} />
+      <div className="p-5">
+        <div className="h-0.5 w-10 rounded-full mb-3 bg-blue-500" />
 
-        <h3 className="text-sm font-semibold text-slate-100 mb-2 leading-snug group-hover:text-white transition-colors line-clamp-2">
+        <h3 className="text-sm font-semibold text-gray-900 mb-2 leading-snug line-clamp-2">
           {project.title}
         </h3>
-        <p className="text-xs text-slate-500 leading-relaxed mb-4 line-clamp-3">
+        <p className="text-xs text-gray-500 leading-relaxed mb-4 line-clamp-3">
           {project.description}
         </p>
 
-        {/* Tech badges */}
-        <div className="flex flex-wrap gap-1.5 mb-5">
+        <div className="flex flex-wrap gap-1.5 mb-4">
           {project.technologies.map((tech, i) => (
-            <span key={i} className="tech-badge" style={{ fontSize: '10px', padding: '2px 8px' }}>
-              {tech}
-            </span>
+            <span key={i} className="tech-badge">{tech}</span>
           ))}
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-2 pt-4 border-t border-white/5">
+        <div className="flex gap-2 pt-4 border-t border-gray-100">
           <a
-            href={project.documentation || "#"}
+            href={project.link || "#"}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-xl text-xs font-semibold text-white transition-all duration-200 hover:opacity-90 bg-gradient-to-r ${project.accent}`}
-            style={{ boxShadow: `0 4px 16px ${project.glow}` }}
+            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors"
           >
             <IconExternalLink className="w-3.5 h-3.5" />
             View Project
           </a>
-
-          {project.category === 'Open Source' && (
-            <button className="p-2 rounded-xl text-slate-500 hover:text-slate-200 hover:bg-white/10 border border-white/08 transition-all"
-              style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
+          {project.category === "Open Source" && (
+            <button className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 border border-gray-200 transition-all">
               <IconBrandGithub className="w-4 h-4" />
             </button>
           )}
-          <button className="p-2 rounded-xl text-slate-500 hover:text-slate-200 hover:bg-white/10 transition-all"
-            style={{ border: '1px solid rgba(255,255,255,0.08)' }}>
-            <IconWorld className="w-4 h-4" />
-          </button>
         </div>
       </div>
     </motion.div>
@@ -151,50 +110,39 @@ const ProjectCard = ({ project, index }) => {
 
 const EmptyState = () => (
   <div className="text-center py-20">
-    <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4"
-      style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-      <IconFilter className="w-7 h-7 text-slate-600" />
+    <div className="w-14 h-14 rounded-2xl bg-gray-100 flex items-center justify-center mx-auto mb-4">
+      <IconFilter className="w-6 h-6 text-gray-400" />
     </div>
-    <p className="text-slate-500 text-sm">No projects found for this filter.</p>
+    <p className="text-gray-500 text-sm">No projects found for this filter.</p>
   </div>
 );
 
 const ProfessionalProjectComponent = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
   const [showAll, setShowAll] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
   const filteredProjects = projectsData.filter(p => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'opensource') return p.category === 'Open Source';
-    if (activeFilter === 'application') return p.category === 'Application';
+    if (activeFilter === "all")         return true;
+    if (activeFilter === "opensource")  return p.category === "Open Source";
+    if (activeFilter === "application") return p.category === "Application";
     return true;
   });
   const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, 4);
 
   return (
-    <section
-      ref={ref}
-      className="relative min-h-screen px-4 py-24"
-      style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #0a0a0f 100%)' }}
-    >
-      {/* Ambient */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.04) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-
-      <div className="max-w-7xl mx-auto">
-
-        {/* Header */}
+    <section ref={ref} className="py-24 px-4 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <p className="section-subtitle mb-3">// recent works</p>
-          <h2 className="section-title text-3xl font-bold">
-            Featured <span className="text-gradient-cyan">Projects</span>
+          <p className="section-subtitle mb-3">Projects</p>
+          <h2 className="section-title">
+            Featured <span className="text-gradient-cyan">Work</span>
           </h2>
         </motion.div>
 
@@ -202,10 +150,10 @@ const ProfessionalProjectComponent = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.2 }}
+          transition={{ delay: 0.15 }}
           className="flex flex-wrap gap-3 mb-10"
         >
-          {filterCategories.map((cat) => (
+          {filterCategories.map(cat => (
             <FilterButton
               key={cat.id}
               active={activeFilter === cat.id}
@@ -225,7 +173,7 @@ const ProfessionalProjectComponent = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25 }}
               className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8"
             >
               {visibleProjects.map((project, i) => (
@@ -237,10 +185,18 @@ const ProfessionalProjectComponent = () => {
           )}
         </AnimatePresence>
 
-        {/* See more */}
+        {/* Show more */}
         {!showAll && filteredProjects.length > 4 && (
           <div className="text-center">
-            <SeeMoreButton showAll={showAll} setShowAll={setShowAll} filteredProjects={filteredProjects} />
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all shadow-sm"
+            >
+              Show all {filteredProjects.length} projects
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
           </div>
         )}
       </div>

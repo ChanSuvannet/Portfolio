@@ -1,10 +1,7 @@
-import { debounce } from "lodash";
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Footer from "../../components/Footer";
-import SectionDivider from "../../components/SectionDivider";
 
-// Lazy-loaded page sections
 const HomeComponent        = lazy(() => import("./Home"));
 const AboutMeComponent     = lazy(() => import("./About"));
 const EducationComponent   = lazy(() => import("./Education"));
@@ -13,24 +10,23 @@ const ExperienceComponent  = lazy(() => import("./Experience"));
 const SkillComponent       = lazy(() => import("./Skill"));
 const ProjectComponent     = lazy(() => import("./Project"));
 const CompetitionComponent = lazy(() => import("./Competition"));
+const ContactSection       = lazy(() => import("./Contact"));
 
-const FloatingDockDemo = lazy(() => import("../../helper/FloatingDock"));
-
-// Section configuration — order controls scroll order
 const sections = [
-  { id: "home",         Component: HomeComponent,          label: "Home"         },
-  { id: "about",        Component: AboutMeComponent,       label: "About Me"     },
-  { id: "education",    Component: EducationComponent,     label: "Education"    },
-  { id: "volunteer",    Component: VolunteerWorkComponent, label: "Volunteer"    },
-  { id: "experience",   Component: ExperienceComponent,    label: "Experience"   },
-  { id: "projects",     Component: ProjectComponent,       label: "Projects"     },
-  { id: "competitions", Component: CompetitionComponent,   label: "Competitions" },
-  { id: "skills",       Component: SkillComponent,         label: "Skills"       },
+  { id: "home",         Component: HomeComponent,           label: "Home"        },
+  { id: "about",        Component: AboutMeComponent,        label: "About Me"    },
+  { id: "education",    Component: EducationComponent,      label: "Education"   },
+  { id: "volunteer",    Component: VolunteerWorkComponent,  label: "Volunteer"   },
+  { id: "experience",   Component: ExperienceComponent,     label: "Experience"  },
+  { id: "projects",     Component: ProjectComponent,        label: "Projects"    },
+  { id: "competitions", Component: CompetitionComponent,    label: "Competitions"},
+  { id: "skills",       Component: SkillComponent,          label: "Skills"      },
+  { id: "contact",      Component: ContactSection,          label: "Contact"     },
 ];
 
 const SectionFallback = () => (
-  <div className="flex justify-center items-center py-24 min-h-[30vh]">
-    <div className="spinner animate-spin rounded-full h-10 w-10 border-2" />
+  <div className="flex justify-center items-center py-24 min-h-[20vh]">
+    <div className="spinner animate-spin rounded-full h-8 w-8 border-2" />
   </div>
 );
 
@@ -40,8 +36,7 @@ class ErrorBoundary extends React.Component {
   render() {
     if (this.state.hasError) {
       return (
-        <div className="flex justify-center py-8 text-red-400 h-screen"
-          style={{ background: "#0a0a0f" }}>
+        <div className="flex justify-center items-center py-16 text-gray-500 text-sm">
           Something went wrong. Please try refreshing the page.
         </div>
       );
@@ -52,9 +47,7 @@ class ErrorBoundary extends React.Component {
 
 const RootLayout = () => {
   const location = useLocation();
-  const [showFloatingDock, setShowFloatingDock] = useState(false);
 
-  // Hash-based smooth scroll
   useEffect(() => {
     if (!location.hash) return;
     const timer = setTimeout(() => {
@@ -68,53 +61,23 @@ const RootLayout = () => {
     return () => clearTimeout(timer);
   }, [location]);
 
-  // Floating dock appears after scrolling past the hero
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const handleScroll = debounce(() => {
-      setShowFloatingDock(window.scrollY > window.innerHeight);
-    }, 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      handleScroll.cancel();
-    };
-  }, []);
-
   return (
     <ErrorBoundary>
-      <main style={{ background: "#0a0a0f" }}>
-
-        {sections.map(({ id, Component, label }, index) => (
-          <React.Fragment key={id}>
-            <section
-              id={id}
-              aria-labelledby={`${id}-heading`}
-              className="scroll-mt-16"
-            >
-              <h2 id={`${id}-heading`} className="sr-only">{label}</h2>
-              <Suspense fallback={<SectionFallback />}>
-                <Component />
-              </Suspense>
-            </section>
-
-            {/* Animated circuit divider between every section except the last */}
-            {index < sections.length - 1 && (
-              <SectionDivider flip={index % 2 === 1} />
-            )}
-          </React.Fragment>
+      <main className="bg-white">
+        {sections.map(({ id, Component, label }) => (
+          <section
+            key={id}
+            id={id}
+            aria-labelledby={`${id}-heading`}
+            className="scroll-mt-16"
+          >
+            <h2 id={`${id}-heading`} className="sr-only">{label}</h2>
+            <Suspense fallback={<SectionFallback />}>
+              <Component />
+            </Suspense>
+          </section>
         ))}
-
-        {/* Web3 Footer */}
         <Footer />
-
-        {/* Floating dock — appears after first scroll */}
-        {showFloatingDock && (
-          <Suspense fallback={null}>
-            <FloatingDockDemo />
-          </Suspense>
-        )}
       </main>
     </ErrorBoundary>
   );

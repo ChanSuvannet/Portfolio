@@ -1,6 +1,6 @@
-import { AnimatePresence, motion, useInView } from 'framer-motion';
-import { useEffect, useRef, useState } from 'react';
-import { volunteerData as data } from '../../data/volunteer';
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { volunteerData as data } from "../../data/volunteer";
 
 const VolunteerWorkComponent = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,57 +11,48 @@ const VolunteerWorkComponent = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((p) => (p + 1) % data.length);
+      setCurrentSlide(p => (p + 1) % data.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const openModal = (cert) => { setSelectedCertificate(cert); setIsModalOpen(true); };
-  const closeModal = () => { setIsModalOpen(false); setSelectedCertificate(null); };
-  const goToSlide = (i) => setCurrentSlide(i);
+  const openModal  = (cert) => { setSelectedCertificate(cert); setIsModalOpen(true); };
+  const closeModal = ()     => { setIsModalOpen(false); setSelectedCertificate(null); };
+  const goToSlide  = (i)    => setCurrentSlide(i);
 
   const item = data[currentSlide];
 
   return (
-    <section
-      ref={ref}
-      className="relative min-h-screen px-4 py-24"
-      style={{ background: 'linear-gradient(180deg, #0d0d1a 0%, #0a0a0f 100%)' }}
-    >
-      {/* Ambient glow */}
-      <div className="absolute top-1/3 left-0 w-80 h-80 pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.05) 0%, transparent 70%)', filter: 'blur(50px)' }} />
-
+    <section ref={ref} className="py-24 px-4 bg-white">
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <p className="section-subtitle mb-3">// community impact</p>
-          <h2 className="section-title text-3xl font-bold">
+          <p className="section-subtitle mb-3">Community</p>
+          <h2 className="section-title">
             Volunteer <span className="text-gradient-cyan">Work</span>
           </h2>
         </motion.div>
 
-        {/* Slide counter & nav */}
+        {/* Slide nav */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.3 }}
-          className="flex items-center justify-between mb-6"
+          transition={{ delay: 0.2 }}
+          className="flex items-center justify-between mb-5"
         >
-          <span className="text-xs font-mono text-slate-500">
-            {String(currentSlide + 1).padStart(2, '0')} / {String(data.length).padStart(2, '0')}
+          <span className="text-xs text-gray-400 font-medium">
+            {String(currentSlide + 1).padStart(2, "0")} / {String(data.length).padStart(2, "0")}
           </span>
           <div className="flex gap-2">
             <button
               onClick={() => goToSlide((currentSlide - 1 + data.length) % data.length)}
-              className="p-1.5 rounded-lg text-slate-500 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all border border-white/08"
-              style={{ border: '1px solid rgba(255,255,255,0.08)' }}
+              className="p-2 rounded-lg text-gray-500 hover:text-blue-600 hover:bg-blue-50 border border-gray-200 transition-all"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -69,8 +60,7 @@ const VolunteerWorkComponent = () => {
             </button>
             <button
               onClick={() => goToSlide((currentSlide + 1) % data.length)}
-              className="p-1.5 rounded-lg text-slate-500 hover:text-cyan-400 hover:bg-cyan-400/10 transition-all"
-              style={{ border: '1px solid rgba(255,255,255,0.08)' }}
+              className="p-2 rounded-lg text-gray-500 hover:text-blue-600 hover:bg-blue-50 border border-gray-200 transition-all"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -79,52 +69,39 @@ const VolunteerWorkComponent = () => {
           </div>
         </motion.div>
 
-        {/* Slide Card */}
+        {/* Slide card */}
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.4 }}
-            className="relative rounded-2xl overflow-hidden"
-            style={{
-              background: 'rgba(13,13,26,0.85)',
-              border: '1px solid rgba(255,255,255,0.06)',
-              backdropFilter: 'blur(16px)',
-            }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.3 }}
+            className="glass-card overflow-hidden"
           >
-            {/* Gradient accent top */}
             <div className={`h-1 w-full bg-gradient-to-r ${item.color}`} />
 
-            {/* Ambient hover glow */}
-            <div className="absolute inset-0 pointer-events-none rounded-2xl"
-              style={{ background: `radial-gradient(ellipse at top left, ${item.glow} 0%, transparent 50%)` }} />
-
-            <div className="relative p-8 flex flex-col md:flex-row items-start gap-6">
+            <div className="p-7 flex flex-col sm:flex-row items-start gap-6">
               {/* Number badge */}
-              <div className={`flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-2xl font-bold text-white bg-gradient-to-br ${item.color}`}
-                style={{ boxShadow: `0 8px 24px ${item.glow}` }}>
-                {String(currentSlide + 1).padStart(2, '0')}
+              <div className={`flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center text-xl font-bold text-white bg-gradient-to-br ${item.color} shadow-sm`}>
+                {String(currentSlide + 1).padStart(2, "0")}
               </div>
 
               {/* Content */}
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-4 flex-wrap mb-3">
                   <div>
-                    <h3 className="text-base font-semibold text-slate-100">{item.title}</h3>
-                    <div className="flex items-center gap-2 mt-1">
-                      <span className={`text-xs font-mono px-2 py-0.5 rounded-md bg-gradient-to-r ${item.color} text-white`}
-                        style={{ fontSize: '10px' }}>
+                    <h3 className="text-sm font-semibold text-gray-900">{item.title}</h3>
+                    <div className="flex items-center gap-2 mt-1.5">
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded-md bg-gradient-to-r ${item.color} text-white`}>
                         {item.role}
                       </span>
-                      <span className="text-xs text-slate-500 font-mono">{item.organization}</span>
+                      <span className="text-xs text-gray-500">{item.organization}</span>
                     </div>
                   </div>
                   <button
                     onClick={() => openModal(item.certificate)}
-                    className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-cyan-400 hover:bg-cyan-400/10 transition-all"
-                    style={{ border: '1px solid rgba(6,182,212,0.3)' }}
+                    className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 transition-all"
                   >
                     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -133,9 +110,8 @@ const VolunteerWorkComponent = () => {
                   </button>
                 </div>
 
-                <div className="h-px mb-4" style={{ background: 'linear-gradient(90deg, rgba(255,255,255,0.07), transparent)' }} />
-
-                <p className="text-sm text-slate-400 leading-relaxed">{item.description}</p>
+                <div className="h-px bg-gray-100 mb-4" />
+                <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
               </div>
             </div>
           </motion.div>
@@ -143,21 +119,21 @@ const VolunteerWorkComponent = () => {
 
         {/* Dot indicators */}
         <div className="flex justify-center gap-2 mt-6">
-          {data.map((d, i) => (
+          {data.map((_, i) => (
             <button
               key={i}
               onClick={() => goToSlide(i)}
               className={`transition-all duration-300 rounded-full ${
                 currentSlide === i
-                  ? 'w-6 h-1.5 bg-cyan-400'
-                  : 'w-1.5 h-1.5 bg-white/20 hover:bg-white/40'
+                  ? "w-6 h-1.5 bg-blue-600"
+                  : "w-1.5 h-1.5 bg-gray-300 hover:bg-gray-400"
               }`}
             />
           ))}
         </div>
       </div>
 
-      {/* Certificate Modal */}
+      {/* Certificate modal */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -165,29 +141,27 @@ const VolunteerWorkComponent = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            style={{ background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(8px)' }}
+            style={{ background: "rgba(0,0,0,0.75)", backdropFilter: "blur(4px)" }}
             onClick={closeModal}
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 0.92, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+              exit={{ scale: 0.92, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
               className="relative max-w-2xl w-full"
-              onClick={(e) => e.stopPropagation()}
+              onClick={e => e.stopPropagation()}
             >
               <button
                 onClick={closeModal}
-                className="absolute -top-4 -right-4 z-10 w-9 h-9 rounded-full flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-all"
-                style={{ border: '1px solid rgba(255,255,255,0.15)' }}
+                className="absolute -top-4 -right-4 z-10 w-9 h-9 rounded-full flex items-center justify-center bg-white text-gray-600 hover:text-gray-900 shadow-md border border-gray-200 text-lg"
               >
                 ×
               </button>
               <img
                 src={selectedCertificate}
                 alt="Certificate"
-                className="w-full rounded-2xl shadow-2xl"
-                style={{ border: '1px solid rgba(6,182,212,0.2)' }}
+                className="w-full rounded-2xl shadow-2xl border border-gray-200"
               />
             </motion.div>
           </motion.div>
