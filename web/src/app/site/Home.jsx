@@ -150,8 +150,11 @@ const HomeComponent = () => (
             />
           </svg>
         </a>
+        {/* Contact Me BY Telegram */}
         <a
-          href="mailto:suvannetchan@gmail.com"
+          href="https://t.me/chan_suvannet"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold text-gray-700 bg-white border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-all"
         >
           Contact Me
