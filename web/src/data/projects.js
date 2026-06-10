@@ -4,6 +4,7 @@ import DmsImage from "../assets/projects/dms.png";
 import MMEImage from "../assets/projects/mme.png";
 import TDMSImage from "../assets/projects/tdms.png";
 import FileServiceImage from "../assets/projects/file_service.png";
+import CoinXplorerImage from "../assets/projects/coin.png";
 
 export const projectsData = [
   {
@@ -89,7 +90,23 @@ export const projectsData = [
     image: FileServiceImage,
     className: "md:col-span-1",
     link: "https://github.com/ChanSuvannet/file-service",
+
     accent: "from-rose-400 to-pink-600",
+    glow: "rgba(244,63,94,0.2)",
+  },
+  {
+    id: 7,
+    title: "CoinXplorer",
+    description:
+      "Cross-platform cryptocurrency market app inspired by CoinMarketCap: real-time market data, interactive coin charts, a personal watchlist, news updates, search and portfolio. Built with Flutter/Dart",
+    category: "Open Source",
+    technologies: ["Flutter", "Dart", "CoinGecko API"],
+    status: "Completed",
+    image: CoinXplorerImage,
+    className: "md:col-span-1",
+    link: "https://www.figma.com/proto/UACZGroiQhOEURJsMSTY0m/flutter-Project?node-id=28-1248&p=f&t=YuO8ZLDxdjzCou82-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=28%3A1248&show-proto-sidebar=1",
+    accent: "from-rose-400 to-pink-600",
+    githubLink: "https://github.com/ChanSuvannet/CoinXplorer",
     glow: "rgba(244,63,94,0.2)",
   },
 ];

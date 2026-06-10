@@ -98,9 +98,14 @@ const ProjectCard = ({ project, index }) => {
             View Project
           </a>
           {project.category === "Open Source" && (
-            <button className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 border border-gray-200 transition-all">
+            <a
+              href={project?.githubLink || "#"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 border border-gray-200 transition-all"
+            >
               <IconBrandGithub className="w-4 h-4" />
-            </button>
+            </a>
           )}
         </div>
       </div>
